@@ -1,24 +1,24 @@
-main {
+div {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 form {
-  margin-top: 25vh;
-  padding: 2vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid #3a3a3a;
+  background-color: white;
   border-radius: 8px;
+  margin-top: 30vh;
+  width: 80vh;
+  height: 45vh;
+  padding: 2vh;
 }
 
 h3 {
   color: #3a3a3a;
-  padding-bottom: 3vh;
-  padding-top: 2vh;
+  padding-bottom: 4vh;
 }
 
 label {
@@ -27,13 +27,26 @@ label {
 }
 
 input {
+  color: #3a3a3a;
+  width: 70vh;
   padding: 10px;
   margin-bottom: 20px;
+  border: 1px solid #afafaf;
   border-radius: 8px;
-  border: 1px solid #3a3a3a;
+}
+
+span {
+  color: #3a3a3a;
+  margin-bottom: 2vh;
+}
+
+span a {
+  text-decoration: none;
+  color: rgb(0, 60, 255);
 }
 
 button {
+  margin-top: 2vh;
   padding: 10px 20px;
   background-color: #4CAF50;
   color: white;

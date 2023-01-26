@@ -1,6 +1,7 @@
-import { FormEvent, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { api } from "../../services/api";
+import { FormEvent, useState } from "react"
+import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import { api } from "../../services/api"
 
 import "./SignInPage.css"
 
@@ -24,23 +25,26 @@ export function SignInPage() {
   }
 
   return(
-    <main>
+    <div>
       <form onSubmit={handleSubmit}>
         <h3>SignIn</h3>
-      <input 
-        type="email" 
-        name="email" 
-        placeholder="email" 
-        onChange={event => setEmail(event.target.value)}
-      />
-      <input 
+        <input 
+          type="email" 
+          name="email" 
+          placeholder="email" 
+          onChange={event => setEmail(event.target.value)}
+        />
+        <input 
           type="password" 
           name="password" 
           placeholder="password" 
           onChange={event => setPassword(event.target.value)}
         />
+
+        <span>Don't have an account yet? <Link to={"/sign-up"}>SignUp</Link></span>
+
         <button type="submit">Let's Go!</button>
       </form>
-    </main>
-  );
-};
+    </div>
+  )
+}
