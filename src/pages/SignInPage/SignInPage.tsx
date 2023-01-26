@@ -31,13 +31,13 @@ export function SignInPage() {
         <input 
           type="email" 
           name="email" 
-          placeholder="email" 
+          placeholder="Your Email" 
           onChange={event => setEmail(event.target.value)}
         />
         <input 
           type="password" 
           name="password" 
-          placeholder="password" 
+          placeholder="Your Password" 
           onChange={event => setPassword(event.target.value)}
         />
 
