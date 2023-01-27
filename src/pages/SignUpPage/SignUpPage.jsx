@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react"
+import { useState } from "react"
 import { Link } from "react-router-dom"
 import { api } from "../../services/api"
 
@@ -10,7 +10,7 @@ export function SignUpPage() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
-  async function handleSubmit(event: FormEvent) {
+  async function handleSubmit(event) {
     event.preventDefault()
 
     console.log(email, password)
