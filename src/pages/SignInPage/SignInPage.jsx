@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { Link } from "react-router-dom"
 import { useForm } from "react-hook-form"
 import { api } from "../../services/api"
@@ -12,28 +11,23 @@ export function SignInPage() {
     formState: { errors }
   } = useForm()
 
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-
-  async function onSubmit(event) {
-    event.preventDefault()
-
+  async function onSubmit(data) {
     const response = await api.post('/users/signin', {
-      email: email,
-      password: password
+      email: data.email,
+      password: data.password
     })
 
     if(response.status == 200) {
-      localStorage.setItem("token", respose.data)
+      localStorage.setItem("token", response.data)
       window.location.href = "/"
     }
 
-    console.log(respose.status, respose.statusText)
+    console.log(response.status, response.statusText)
   }
 
   return(
     <div>
-      <form onSubmit={ handleSubmit(onSubmit(event)) }>
+      <form onSubmit={ handleSubmit(onSubmit) }>
         <h3>SignIn</h3>
 
         <input 
@@ -41,7 +35,6 @@ export function SignInPage() {
           name="email" 
           placeholder="Your Email" 
           {...register("email", { required: true })}
-          onChange={event => setEmail(event.target.value)}
         />
         {errors.email && <p>Email is required!</p>}
 
@@ -50,7 +43,6 @@ export function SignInPage() {
           name="password" 
           placeholder="Your Password" 
           {...register("password", { required: true })}
-          onChange={event => setPassword(event.target.value)}
         />
         {errors.password && <p>Password is required!</p>}
 
