@@ -1,55 +1,58 @@
-import { useState } from "react"
+import { useForm } from "react-hook-form"
 import { Link } from "react-router-dom"
 import { api } from "../../services/api"
 
 import "./SignUpPage.css"
 
 export function SignUpPage() {
+  const { 
+    register, 
+    handleSubmit,  
+    formState: { errors }
+  } = useForm()
 
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  async function onSubmit(data) {
 
-  async function handleSubmit(event) {
-    event.preventDefault()
-
-    console.log(email, password)
-
-    await api.post('/users', {
-      name: name,
-      email: email,
-      password: password
+    const response = await api.post('/users', {
+      name: data.name,
+      email: data.email,
+      password: data.password
     })
+
+    if(response.status == 201) window.location.href = "/sign-in"
   }
 
   return(
-    <div>
-      <form onSubmit={handleSubmit} className="sign-up-form">
+    <div className="sign-up-page">
+      <form onSubmit={handleSubmit(onSubmit)} className="sign-up-form">
         <h3>SignUp</h3>
         <input 
           type="text" 
           name="name" 
           placeholder="Your Name" 
-          onChange={event => setName(event.target.value)}
+          {...register("name", {required: true})}
         />
+        {errors.name && <p>Name is required!</p>}
+
         <input 
-          type="email" 
+          type="text" 
           name="email" 
           placeholder="Your Email Address" 
-          onChange={event => setEmail(event.target.value)}
+          {...register("email", { required: true })}
         />
+        {errors.email && <p>Email is required!</p>}
+
         <input 
           type="password" 
           name="password" 
           placeholder="Your Password" 
-          onChange={event => setPassword(event.target.value)}
+          {...register("password", { required: true })}
         />
+        {errors.password && <p>Password is required!</p>}
 
         <span>Already have an account? <Link to={"/sign-in"}>SignIn</Link></span>
 
-        <button type="submit">
-          <Link to={"/sign-in"}>Create Account</Link>
-        </button>
+        <button type="submit">Create Account</button>
       </form>
     </div>
   )
