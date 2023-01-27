@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import { useNavigate } from "react-router-dom"
 import { api } from "../../services/api"
 
 import "./SignInPage.css"
@@ -13,17 +12,17 @@ export function SignInPage() {
   async function handleSubmit(event) {
     event.preventDefault()
 
-    console.log(email, password)
-
     const respose = await api.post('/users/signin', {
       email: email,
       password: password
     })
 
-    console.log(respose)
+    if(respose.status == 200) {
+      localStorage.setItem("token", respose.data)
+      window.location.href = "/"
+    }
 
-    const navigate = useNavigate()
-    navigate("/")
+    console.log(respose.status, respose.statusText)
   }
 
   return(
