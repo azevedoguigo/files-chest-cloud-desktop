@@ -10,9 +10,9 @@ form {
   justify-content: center;
   background-color: white;
   border-radius: 8px;
-  margin-top: 30vh;
+  margin-top: 23vh;
   width: 80vh;
-  height: 45vh;
+  height: 55vh;
   padding: 2vh;
 }
 
@@ -30,9 +30,19 @@ input {
   color: #3a3a3a;
   width: 70vh;
   padding: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 3vh;
   border: 1px solid #afafaf;
   border-radius: 8px;
+}
+
+p {
+  color: rgb(197, 37, 37);
+  margin-bottom: 3vh;
+}
+
+p::before {
+  display: inline;
+  content: "⚠ ";
 }
 
 span {
