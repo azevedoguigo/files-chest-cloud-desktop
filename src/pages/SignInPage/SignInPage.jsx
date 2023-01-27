@@ -18,12 +18,12 @@ export function SignInPage() {
   async function onSubmit(event) {
     event.preventDefault()
 
-    const respose = await api.post('/users/signin', {
+    const response = await api.post('/users/signin', {
       email: email,
       password: password
     })
 
-    if(respose.status == 200) {
+    if(response.status == 200) {
       localStorage.setItem("token", respose.data)
       window.location.href = "/"
     }
