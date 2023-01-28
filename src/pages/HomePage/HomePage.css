@@ -1,0 +1,44 @@
+ul {
+  background-color: white;
+  border: none;
+  border-radius: 8px;
+  list-style: none;
+  width: 162vh;
+  margin-top: 2vh;
+}
+
+.list-description {
+  background-color: rgb(235, 235, 235);
+  border: none;
+  border-radius: 8px;
+  padding: 2vh;
+}
+
+.list-description .filename {
+  padding: 1vh 26vh 1vh;
+}
+
+.list-description .filesize {
+  padding: 1vh 10vh 1vh;
+}
+
+.file-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.file-info div {
+  padding-top: 2vh;
+}
+
+.file-info .filename {
+  width: 65vh;
+}
+
+.file-info .filesize {
+  width: 28vh;
+}
+
+.file-info .last-modified {
+  width: 69vh;
+}
