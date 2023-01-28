@@ -1,4 +1,35 @@
-ul {
+.home-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-page .upload-form {
+  background-color: rgb(235, 235, 235);
+  border: none;
+  border-radius: 8px;
+  margin-top: 4vh;
+  padding: 2vh;
+}
+
+.home-page .upload-form span{
+ font-weight: 500;
+}
+
+.home-page .upload-form input {
+  margin-left: 2vh;
+}
+
+.home-page .upload-form .upload-button {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 10px;
+  margin-left: 2vh;
+}
+
+.home-page  ul {
   background-color: white;
   border: none;
   border-radius: 8px;
@@ -7,43 +38,43 @@ ul {
   margin-top: 2vh;
 }
 
-.list-description {
+.home-page .list-description {
   background-color: rgb(235, 235, 235);
   border: none;
   border-radius: 8px;
   padding: 2vh;
 }
 
-.list-description .filename {
+.home-page .list-description .filename {
   padding: 1vh 26vh 1vh;
 }
 
-.list-description .filesize {
+.home-page .list-description .filesize {
   padding: 1vh 10vh 1vh;
 }
 
-.file-info {
+.home-page .file-info {
   display: flex;
   flex-direction: row;
 }
 
-.file-info div {
+.home-page .file-info div {
   padding-top: 2vh;
 }
 
-.file-info .filename {
+.home-page .file-info .filename {
   width: 65vh;
 }
 
-.file-info .filesize {
+.home-page .file-info .filesize {
   width: 28vh;
 }
 
-.file-info .last-modified {
+.home-page .file-info .last-modified {
   width: 69vh;
 }
 
-.no-files-message {
+.home-page .no-files-message {
   padding: 2vh;
   color: #3a3a3a;
 }
