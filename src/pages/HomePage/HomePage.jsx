@@ -72,7 +72,7 @@ export function HomePage() {
             </div>
             
             <div className="filesize">  
-              <span>{file.size}</span>
+              <span>{(file.size / (1024 * 1024)).toFixed(2)} MB</span>
             </div>
 
             <div className="last-modified">
