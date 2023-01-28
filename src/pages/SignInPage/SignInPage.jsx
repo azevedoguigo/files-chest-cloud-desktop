@@ -26,7 +26,7 @@ export function SignInPage() {
   }
 
   return(
-    <div>
+    <div className="sigin-page">
       <form onSubmit={ handleSubmit(onSubmit) }>
         <h3>SignIn</h3>
 

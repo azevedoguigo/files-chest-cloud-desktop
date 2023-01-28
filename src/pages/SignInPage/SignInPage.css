@@ -1,9 +1,9 @@
-div {
+.sigin-page div {
   display: flex;
   justify-content: center;
 }
 
-form {
+.sigin-page form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,17 +16,17 @@ form {
   padding: 2vh;
 }
 
-h3 {
+.sigin-page h3 {
   color: #3a3a3a;
   padding-bottom: 4vh;
 }
 
-label {
+.sigin-page label {
   font-weight: bold;
   margin-bottom: 5px;
 }
 
-input {
+.sigin-page input {
   color: #3a3a3a;
   width: 70vh;
   padding: 10px;
@@ -35,27 +35,27 @@ input {
   border-radius: 8px;
 }
 
-p {
+.sigin-page p {
   color: rgb(197, 37, 37);
   margin-bottom: 3vh;
 }
 
-p::before {
+.sigin-page p::before {
   display: inline;
   content: "⚠ ";
 }
 
-span {
+.sigin-page span {
   color: #3a3a3a;
   margin-bottom: 2vh;
 }
 
-span a {
+.sigin-page span a {
   text-decoration: none;
   color: rgb(0, 60, 255);
 }
 
-button {
+.sigin-page button {
   margin-top: 2vh;
   padding: 10px 20px;
   background-color: #4CAF50;
