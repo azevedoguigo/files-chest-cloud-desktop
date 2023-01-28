@@ -51,7 +51,7 @@ export function HomePage() {
             <span>{file.last_modified}</span>
           </div>
         </li>
-      }) : <div>No files found</div>}
+      }) : <div className="no-files-message"><h2>No files found</h2></div>}
     </ul>
   )
 }

@@ -42,3 +42,8 @@ ul {
 .file-info .last-modified {
   width: 69vh;
 }
+
+.no-files-message {
+  padding: 2vh;
+  color: #3a3a3a;
+}
