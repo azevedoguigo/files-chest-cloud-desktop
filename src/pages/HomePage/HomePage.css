@@ -41,7 +41,8 @@
 .home-page .list-description {
   background-color: rgb(235, 235, 235);
   border: none;
-  border-radius: 8px;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
   padding: 2vh;
 }
 
@@ -56,10 +57,11 @@
 .home-page .file-info {
   display: flex;
   flex-direction: row;
+  border-bottom: 1px solid rgb(235, 235, 235);
 }
 
 .home-page .file-info div {
-  padding-top: 2vh;
+  padding: 2vh;
 }
 
 .home-page .file-info .filename {
