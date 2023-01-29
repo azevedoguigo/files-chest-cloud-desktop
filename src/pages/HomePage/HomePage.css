@@ -93,10 +93,21 @@
 
 .home-page .file-info .filesize {
   width: 28vh;
+  padding-left: 5vh;
 }
 
 .home-page .file-info .last-modified {
-  width: 69vh;
+  width: 58vh;
+  padding-left: 14vh;
+}
+.home-page .file-info .action-icons button {
+  border: none;
+  background-color: white;
+  margin-left: 2vh;
+}
+
+.home-page .file-info .action-icons button:hover {
+  cursor: pointer;
 }
 
 .home-page .no-files-message {

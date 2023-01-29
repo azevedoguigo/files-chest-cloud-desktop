@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react"
+import { DeleteFileIcon } from "../../components/icons/DeleteFileIcon"
+import { DownloadIcon } from "../../components/icons/DownloadIcon"
 import { ReloadIcon } from "../../components/icons/ReloadIcon"
 import { UploadIcon } from "../../components/icons/UploadIcon"
 import { api } from "../../services/api"
@@ -91,6 +93,16 @@ export function HomePage() {
 
             <div className="last-modified">
               <span>{file.last_modified}</span>
+            </div>
+
+            <div className="action-icons">
+              <button>
+                <i><DownloadIcon /></i>
+              </button>
+
+              <button>
+                <i><DeleteFileIcon /></i>
+              </button>
             </div>
           </li>
         }) : <div className="no-files-message"><h2>No files found</h2></div>}
