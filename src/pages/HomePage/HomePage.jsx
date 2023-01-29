@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { ReloadIcon } from "../../components/icons/ReloadIcon"
 import { api } from "../../services/api"
 
 import "./HomePage.css"
@@ -41,6 +42,10 @@ export function HomePage() {
     })
   }
 
+  function reloadPage() {
+    window.location.href = "/"
+  }
+ 
   return(
     <div className="home-page">
       <form className="upload-form" onSubmit={uploadFile}>
@@ -51,6 +56,11 @@ export function HomePage() {
           onChange={event => {setFile(event.target.files)}}
         />
         <button type="submit" className="upload-button">Upload</button>
+        
+        <button className="reload-button" onClick={reloadPage}>
+          <ReloadIcon/>
+          <span>Reload</span>
+        </button>
       </form>
 
       <ul> 
