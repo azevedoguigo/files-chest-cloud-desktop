@@ -12,6 +12,7 @@
   border-radius: 8px;
   margin-top: 4vh;
   padding: 2vh;
+  width: 162vh;
 }
 
 .home-page .upload-form span{
@@ -23,6 +24,9 @@
 }
 
 .home-page .upload-form .upload-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #4CAF50;
   color: white;
   font-weight: bold;
@@ -30,6 +34,10 @@
   border-radius: 8px;
   padding: 6px 10px;
   margin-left: 2vh;
+}
+
+.home-page .upload-form .upload-button span {
+  margin-left: 1vh;
 }
 
 .home-page .upload-form .reload-button {

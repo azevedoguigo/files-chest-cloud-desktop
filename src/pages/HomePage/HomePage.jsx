@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { ReloadIcon } from "../../components/icons/ReloadIcon"
+import { UploadIcon } from "../../components/icons/UploadIcon"
 import { api } from "../../services/api"
 
 import "./HomePage.css"
@@ -55,7 +56,10 @@ export function HomePage() {
           name="file"
           onChange={event => {setFile(event.target.files)}}
         />
-        <button type="submit" className="upload-button">Upload</button>
+        <button type="submit" className="upload-button">
+          <UploadIcon/>
+          <span>Upload</span>
+        </button>
         
         <button className="reload-button" onClick={reloadPage}>
           <ReloadIcon/>
