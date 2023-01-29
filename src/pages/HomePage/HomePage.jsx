@@ -48,6 +48,18 @@ export function HomePage() {
   function reloadPage() {
     window.location.href = "/"
   }
+
+  async function deleteFile(filename) {
+    console.log(filename)
+    await api.delete("/cloud/delete-file", {
+      params: {
+        filename: filename
+      },
+      headers: {
+        "Authorization": `Bearer ${token}`
+      },
+    })
+  }
  
   return(
     <div className="home-page">
@@ -100,7 +112,7 @@ export function HomePage() {
                 <i><DownloadIcon /></i>
               </button>
 
-              <button>
+              <button onClick={() => deleteFile(file.key)}>
                 <i><DeleteFileIcon /></i>
               </button>
             </div>
