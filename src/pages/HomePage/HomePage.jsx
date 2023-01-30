@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react"
+
 import { DeleteFileIcon } from "../../components/icons/DeleteFileIcon"
 import { DownloadIcon } from "../../components/icons/DownloadIcon"
 import { ReloadIcon } from "../../components/icons/ReloadIcon"
 import { UploadIcon } from "../../components/icons/UploadIcon"
+
+import { save } from "@tauri-apps/api/dialog"
+
 import { api } from "../../services/api"
 
 import "./HomePage.css"
@@ -49,8 +53,39 @@ export function HomePage() {
     window.location.href = "/"
   }
 
+  
+  async function downloadFile(filename) {
+    
+    const response = await api.get("/cloud/download", {
+      params: {
+        filename: filename
+      },
+      headers: {
+        "Authorization": `Bearer ${token}`
+      },
+    })
+
+    const downloadUrl = response.data.download_url
+
+    if(downloadUrl) {
+      /*
+      const downloadPath = await save({
+        defaultPath: `/home/guilherme/Downloads/${filename}`
+      })*/
+      
+      console.log(downloadUrl)
+
+      const a = document.createElement("a")
+      a.style.display = "none"
+      a.href = downloadUrl
+      a.download = `${filename}`
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+    }
+  }
+
   async function deleteFile(filename) {
-    console.log(filename)
     await api.delete("/cloud/delete-file", {
       params: {
         filename: filename
@@ -108,7 +143,7 @@ export function HomePage() {
             </div>
 
             <div className="action-icons">
-              <button>
+              <button onClick={() => downloadFile(file.key)}>
                 <i><DownloadIcon /></i>
               </button>
 
