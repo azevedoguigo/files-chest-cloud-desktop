@@ -49,13 +49,9 @@ div {
   margin-top: 2vh;
   padding: 10px 20px;
   background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
   border-radius: 8px;
   border: none;
   cursor: pointer;
-}
-
-.sign-up-form button a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
 }
