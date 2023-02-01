@@ -1,0 +1,22 @@
+.sidebar {
+  background-color: rgb(39, 37, 43);
+  padding: 2vh;
+  height: 100vh;
+}
+
+.sidebar .logo {
+  border-bottom: 1px solid white;
+}
+
+.sidebar ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  margin-top: 2vh;
+}
+
+.sidebar ul li {
+  margin-top: 3vh;
+}
