@@ -26,30 +26,32 @@ export function SignInPage() {
   }
 
   return(
-    <div className="sigin-page">
-      <form onSubmit={ handleSubmit(onSubmit) }>
-        <h3>SignIn</h3>
+    <div className="sign-in-container">
+      <div className="sigin-page">
+        <form onSubmit={ handleSubmit(onSubmit) }>
+          <h3>SignIn</h3>
 
-        <input 
-          type="email" 
-          name="email" 
-          placeholder="Your Email" 
-          {...register("email", { required: true })}
-        />
-        {errors.email && <p>Email is required!</p>}
+          <input 
+            type="email" 
+            name="email" 
+            placeholder="Your Email" 
+            {...register("email", { required: true })}
+          />
+          {errors.email && <p>Email is required!</p>}
 
-        <input 
-          type="password" 
-          name="password" 
-          placeholder="Your Password" 
-          {...register("password", { required: true })}
-        />
-        {errors.password && <p>Password is required!</p>}
+          <input 
+            type="password" 
+            name="password" 
+            placeholder="Your Password" 
+            {...register("password", { required: true })}
+          />
+          {errors.password && <p>Password is required!</p>}
 
-        <span>Don't have an account yet? <Link to={"/sign-up"}>SignUp</Link></span>
+          <span>Don't have an account yet? <Link to={"/sign-up"}>SignUp</Link></span>
 
-        <button type="submit">Let's Go!</button>
-      </form>
+          <button type="submit">Let's Go!</button>
+        </form>
+      </div>
     </div>
   )
 }

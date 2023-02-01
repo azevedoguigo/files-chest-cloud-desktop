@@ -1,3 +1,8 @@
+.sign-in-container {
+  display: flex;
+  justify-content: center;
+}
+
 .sigin-page div {
   display: flex;
   justify-content: center;
