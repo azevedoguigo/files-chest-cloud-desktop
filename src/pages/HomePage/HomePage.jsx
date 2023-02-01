@@ -5,6 +5,7 @@ import { DownloadIcon } from "../../components/icons/DownloadIcon"
 import { ReloadIcon } from "../../components/icons/ReloadIcon"
 import { UploadIcon } from "../../components/icons/UploadIcon"
 
+import { invoke } from '@tauri-apps/api/tauri'
 import { save } from "@tauri-apps/api/dialog"
 
 import { api } from "../../services/api"
@@ -68,20 +69,9 @@ export function HomePage() {
     const downloadUrl = response.data.download_url
 
     if(downloadUrl) {
-      /*
-      const downloadPath = await save({
-        defaultPath: `/home/guilherme/Downloads/${filename}`
-      })*/
-      
-      console.log(downloadUrl)
-
-      const a = document.createElement("a")
-      a.style.display = "none"
-      a.href = downloadUrl
-      a.download = `${filename}`
-      document.body.appendChild(a)
-      a.click()
-      document.body.removeChild(a)
+      invoke("download_file", {
+        url: downloadUrl
+      })
     }
   }
 
