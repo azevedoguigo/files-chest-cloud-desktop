@@ -113,9 +113,9 @@ export function HomePage() {
         <h4>All Files</h4>
         <ul> 
           <li className="list-description">
-            <span className="filename">File name</span>
+            <span className="filename">File Name</span>
 
-            <span className="filesize">File size</span>
+            <span className="filesize">File Size</span>
 
             <span className="filename">Last Modified</span>
 
