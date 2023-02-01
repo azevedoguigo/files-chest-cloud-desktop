@@ -1,9 +1,14 @@
 .home-page {
   display: flex;
+  flex-direction: row;
+}
+
+.files-manager {
+  display: flex;
   flex-direction: column;
 }
 
-.home-page .upload-form {
+.files-manager .upload-form {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -15,15 +20,15 @@
   width: 162vh;
 }
 
-.home-page .upload-form span{
+.files-manager .upload-form span{
  font-weight: 500;
 }
 
-.home-page .upload-form input {
+.files-manager .upload-form input {
   margin-left: 2vh;
 }
 
-.home-page .upload-form .upload-button {
+.files-manager .upload-form .upload-button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,11 +41,11 @@
   margin-left: 2vh;
 }
 
-.home-page .upload-form .upload-button span {
+.files-manager .upload-form .upload-button span {
   margin-left: 1vh;
 }
 
-.home-page .upload-form .reload-button {
+.files-manager .upload-form .reload-button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,11 +53,11 @@
   padding: 4px;
 }
 
-.home-page .upload-form .reload-button span {
+.files-manager .upload-form .reload-button span {
   margin-left: 1vh;
 }
 
-.home-page  ul {
+.files-manager  ul {
   background-color: white;
   border: none;
   border-radius: 8px;
@@ -61,7 +66,7 @@
   margin-top: 2vh;
 }
 
-.home-page .list-description {
+.files-manager .list-description {
   background-color: rgb(235, 235, 235);
   border: none;
   border-top-right-radius: 8px;
@@ -69,48 +74,48 @@
   padding: 2vh;
 }
 
-.home-page .list-description .filename {
+.files-manager .list-description .filename {
   padding: 1vh 26vh 1vh;
 }
 
-.home-page .list-description .filesize {
+.files-manager .list-description .filesize {
   padding: 1vh 10vh 1vh;
 }
 
-.home-page .file-info {
+.files-manager .file-info {
   display: flex;
   flex-direction: row;
   border-bottom: 1px solid rgb(235, 235, 235);
 }
 
-.home-page .file-info div {
+.files-manager .file-info div {
   padding: 2vh;
 }
 
-.home-page .file-info .filename {
+.files-manager .file-info .filename {
   width: 65vh;
 }
 
-.home-page .file-info .filesize {
+.files-manager .file-info .filesize {
   width: 28vh;
   padding-left: 5vh;
 }
 
-.home-page .file-info .last-modified {
+.files-manager .file-info .last-modified {
   width: 58vh;
   padding-left: 14vh;
 }
-.home-page .file-info .action-icons button {
+.files-manager .file-info .action-icons button {
   border: none;
   background-color: white;
   margin-left: 2vh;
 }
 
-.home-page .file-info .action-icons button:hover {
+.files-manager .file-info .action-icons button:hover {
   cursor: pointer;
 }
 
-.home-page .no-files-message {
+.files-manager .no-files-message {
   padding: 2vh;
   color: #3a3a3a;
 }

@@ -11,6 +11,7 @@ import { save } from "@tauri-apps/api/dialog"
 import { api } from "../../services/api"
 
 import "./HomePage.css"
+import { Sidebar } from "../../components/sidebar/Sidebar"
 
 export function HomePage() {
   const [filesList, setFilesList] = useState([])
@@ -31,7 +32,7 @@ export function HomePage() {
       setFilesList(response.data)
     }
 
-    loadFilesList()
+    //loadFilesList()
   }, [])
 
   async function uploadFile(event) {
@@ -93,62 +94,65 @@ export function HomePage() {
  
   return(
     <div className="home-page">
-      <form className="upload-form" onSubmit={uploadFile}>
-        <span>Upload File</span>
-        <input 
-          type="file" 
-          name="file"
-          onChange={event => {setFile(event.target.files)}}
-        />
-        <button type="submit" className="upload-button">
-          <UploadIcon/>
-          <span>Upload</span>
-        </button>
-        
-        <button className="reload-button" onClick={reloadPage}>
-          <ReloadIcon/>
-          <span>Reload</span>
-        </button>
-      </form>
+      <Sidebar/>
+      <div className="files-manager">
+        <form className="upload-form" onSubmit={uploadFile}>
+          <span>Upload File</span>
+          <input 
+            type="file" 
+            name="file"
+            onChange={event => {setFile(event.target.files)}}
+          />
+          <button type="submit" className="upload-button">
+            <UploadIcon/>
+            <span>Upload</span>
+          </button>
+          
+          <button className="reload-button" onClick={reloadPage}>
+            <ReloadIcon/>
+            <span>Reload</span>
+          </button>
+        </form>
 
-      <ul> 
-        <li className="list-description">
-          <span className="filename">Filename</span>
+        <ul> 
+          <li className="list-description">
+            <span className="filename">Filename</span>
 
-          <span className="divisor">|</span>
+            <span className="divisor">|</span>
 
-          <span className="filesize">Filesize</span>
+            <span className="filesize">Filesize</span>
 
-          <span className="divisor">|</span>
+            <span className="divisor">|</span>
 
-          <span className="filename">Last Modified</span>
-        </li>
-        {filesList.length ? filesList.map(file => {
-          return <li key={file.key} className="file-info">
-            <div className="filename">
-              <span>{file.key}</span>
-            </div>
-            
-            <div className="filesize">  
-              <span>{(file.size / (1024 * 1024)).toFixed(2)} MB</span>
-            </div>
-
-            <div className="last-modified">
-              <span>{file.last_modified}</span>
-            </div>
-
-            <div className="action-icons">
-              <button onClick={() => downloadFile(file.key)}>
-                <i><DownloadIcon /></i>
-              </button>
-
-              <button onClick={() => deleteFile(file.key)}>
-                <i><DeleteFileIcon /></i>
-              </button>
-            </div>
+            <span className="filename">Last Modified</span>
           </li>
-        }) : <div className="no-files-message"><h2>No files found</h2></div>}
-      </ul>
+          {filesList.length ? filesList.map(file => {
+            return <li key={file.key} className="file-info">
+              <div className="filename">
+                <span>{file.key}</span>
+              </div>
+              
+              <div className="filesize">  
+                <span>{(file.size / (1024 * 1024)).toFixed(2)} MB</span>
+              </div>
+
+              <div className="last-modified">
+                <span>{file.last_modified}</span>
+              </div>
+
+              <div className="action-icons">
+                <button onClick={() => downloadFile(file.key)}>
+                  <i><DownloadIcon /></i>
+                </button>
+
+                <button onClick={() => deleteFile(file.key)}>
+                  <i><DeleteFileIcon /></i>
+                </button>
+              </div>
+            </li>
+          }) : <div className="no-files-message"><h2>No files found</h2></div>}
+        </ul>
+      </div>
     </div>
   )
 }
