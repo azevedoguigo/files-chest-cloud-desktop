@@ -6,16 +6,17 @@
 .files-manager {
   display: flex;
   flex-direction: column;
+  margin-left: 9vh;
 }
 
 .files-manager .upload-form {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: rgb(235, 235, 235);
+  background-color: rgb(241, 241, 241);
   border: none;
-  border-radius: 8px;
-  margin-top: 4vh;
+  border-radius: 4px;
+  margin-top: 1vh;
   padding: 2vh;
   width: 162vh;
 }
@@ -36,7 +37,7 @@
   color: white;
   font-weight: bold;
   border: none;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 6px 10px;
   margin-left: 2vh;
 }
@@ -53,39 +54,49 @@
   padding: 4px;
 }
 
-.files-manager .upload-form .reload-button span {
-  margin-left: 1vh;
-}
-
 .files-manager  ul {
-  background-color: white;
-  border: none;
-  border-radius: 8px;
+  background-color: rgb(245, 245, 245);
+  border: 1px solid rgb(216, 216, 216);
+  border-radius: 4px;
   list-style: none;
   width: 162vh;
-  margin-top: 2vh;
+  margin-top: 1vh;
 }
 
 .files-manager .list-description {
-  background-color: rgb(235, 235, 235);
-  border: none;
-  border-top-right-radius: 8px;
-  border-top-left-radius: 8px;
-  padding: 2vh;
+  border-bottom: 1px solid rgb(216, 216, 216);
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+  padding: 1vh;
 }
 
 .files-manager .list-description .filename {
-  padding: 1vh 26vh 1vh;
+  padding: 1vh 22vh 1vh;
 }
 
 .files-manager .list-description .filesize {
   padding: 1vh 10vh 1vh;
 }
 
+h4 {
+  margin-top: 2vh;
+}
+
+.files-manager .list-description .reload-button {
+  border: none;
+  background-color: rgb(245, 245, 245);
+  margin-left: 11.5vh;
+  padding: 4px;
+}
+
+.files-manager .list-description .reload-button:hover {
+  cursor: pointer;
+}
+
 .files-manager .file-info {
   display: flex;
   flex-direction: row;
-  border-bottom: 1px solid rgb(235, 235, 235);
+  border-bottom: 1px solid rgb(216, 216, 216);
 }
 
 .files-manager .file-info div {
@@ -93,7 +104,7 @@
 }
 
 .files-manager .file-info .filename {
-  width: 65vh;
+  width: 61vh;
 }
 
 .files-manager .file-info .filesize {
@@ -103,11 +114,11 @@
 
 .files-manager .file-info .last-modified {
   width: 58vh;
-  padding-left: 14vh;
+  padding-left: 12vh;
 }
 .files-manager .file-info .action-icons button {
   border: none;
-  background-color: white;
+  background-color: rgb(245, 245, 245);
   margin-left: 2vh;
 }
 

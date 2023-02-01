@@ -32,7 +32,7 @@ export function HomePage() {
       setFilesList(response.data)
     }
 
-    //loadFilesList()
+    loadFilesList()
   }, [])
 
   async function uploadFile(event) {
@@ -96,8 +96,10 @@ export function HomePage() {
     <div className="home-page">
       <Sidebar/>
       <div className="files-manager">
+        <h4>Upload</h4>
+
         <form className="upload-form" onSubmit={uploadFile}>
-          <span>Upload File</span>
+          <span>Choose a file to upload:</span>
           <input 
             type="file" 
             name="file"
@@ -107,24 +109,19 @@ export function HomePage() {
             <UploadIcon/>
             <span>Upload</span>
           </button>
-          
-          <button className="reload-button" onClick={reloadPage}>
-            <ReloadIcon/>
-            <span>Reload</span>
-          </button>
         </form>
-
+        <h4>All Files</h4>
         <ul> 
           <li className="list-description">
-            <span className="filename">Filename</span>
+            <span className="filename">File name</span>
 
-            <span className="divisor">|</span>
-
-            <span className="filesize">Filesize</span>
-
-            <span className="divisor">|</span>
+            <span className="filesize">File size</span>
 
             <span className="filename">Last Modified</span>
+
+            <button className="reload-button" onClick={reloadPage}>
+              <ReloadIcon/>
+            </button>
           </li>
           {filesList.length ? filesList.map(file => {
             return <li key={file.key} className="file-info">
