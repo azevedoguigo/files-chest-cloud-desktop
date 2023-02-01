@@ -69,8 +69,13 @@ export function HomePage() {
     const downloadUrl = response.data.download_url
 
     if(downloadUrl) {
+      const downloadPath = await save({
+        defaultPath: `/home/${filename}`
+      })
+
       invoke("download_file", {
-        url: downloadUrl
+        url: downloadUrl,
+        path: downloadPath.replace(filename, "")
       })
     }
   }

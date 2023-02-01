@@ -6,9 +6,9 @@
 use downloader::Downloader;
 
 #[tauri::command]
-fn download_file(url: String) {
+fn download_file(url: String, path: String) {
     let mut downloader = Downloader::builder()
-        .download_folder(std::path::Path::new("/home/guilherme/Downloads/"))
+        .download_folder(std::path::Path::new(&path))
         .parallel_requests(1)
         .build()
         .unwrap();
