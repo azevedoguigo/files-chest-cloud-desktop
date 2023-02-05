@@ -32,7 +32,7 @@
   padding: 10px;
   margin-bottom: 20px;
   border: 1px solid #afafaf;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 .sign-up-form span {
@@ -51,7 +51,7 @@
   background-color: #4CAF50;
   color: white;
   font-weight: bold;
-  border-radius: 8px;
+  border-radius: 4px;
   border: none;
   cursor: pointer;
 }
