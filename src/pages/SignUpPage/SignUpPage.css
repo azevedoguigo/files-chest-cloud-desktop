@@ -35,6 +35,16 @@
   border-radius: 4px;
 }
 
+.sign-up-page p {
+  color: rgb(197, 37, 37);
+  margin-bottom: 3vh;
+}
+
+.sign-up-page p::before {
+  display: inline;
+  content: "⚠ ";
+}
+
 .sign-up-form span {
   color: #3a3a3a;
   margin-bottom: 2vh;
