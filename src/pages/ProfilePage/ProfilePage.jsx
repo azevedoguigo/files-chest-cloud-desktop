@@ -1,3 +1,9 @@
+import { Sidebar } from "../../components/sidebar/Sidebar";
+
 export function ProfilePage() {
-  return <h1>Profile</h1>
+  return (
+    <div>
+      <Sidebar />
+    </div>
+  )
 }
