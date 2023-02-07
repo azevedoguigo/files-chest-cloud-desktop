@@ -70,3 +70,8 @@
   font-weight: bold;
   cursor: pointer;
 }
+
+.sigin-page button:hover {
+  background-color: #3b993e;
+  transition: 0.5s;
+}
