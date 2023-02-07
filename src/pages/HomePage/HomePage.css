@@ -42,6 +42,12 @@
   margin-left: 2vh;
 }
 
+.files-manager .upload-form .upload-button:hover {
+  cursor: pointer;
+  background-color: #3b993e;
+  transition: 0.5s;
+}
+
 .files-manager .upload-form .upload-button span {
   margin-left: 1vh;
 }
