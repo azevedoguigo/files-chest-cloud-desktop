@@ -72,26 +72,32 @@ export function HomePage() {
   
   async function downloadFile(filename) {
     
-    const response = await api.get("/cloud/download", {
-      params: {
-        filename: filename
-      },
-      headers: {
-        "Authorization": `Bearer ${token}`
-      },
-    })
-
-    const downloadUrl = response.data.download_url
-
-    if(downloadUrl) {
-      const downloadPath = await save({
-        defaultPath: `/home/${filename}`
+    try {
+      const response = await api.get("/cloud/download", {
+        params: {
+          filename: filename
+        },
+        headers: {
+          "Authorization": `Bearer ${token}`
+        },
       })
+  
+      const downloadUrl = response.data.download_url
+  
+      if(downloadUrl) {
+        const downloadPath = await save({
+          defaultPath: `/home/${filename}`
+        })
+  
+        invoke("download_file", {
+          url: downloadUrl,
+          path: downloadPath.replace(filename, "")
+        })
+      }
 
-      invoke("download_file", {
-        url: downloadUrl,
-        path: downloadPath.replace(filename, "")
-      })
+      toast.success("Success downloading the file!")
+    } catch(err) {
+      toast.error("Failed to download file!")
     }
   }
 
