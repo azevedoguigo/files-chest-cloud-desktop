@@ -96,14 +96,20 @@ export function HomePage() {
   }
 
   async function deleteFile(filename) {
-    await api.delete("/cloud/delete-file", {
-      params: {
-        filename: filename
-      },
-      headers: {
-        "Authorization": `Bearer ${token}`
-      },
-    })
+    try {
+      await api.delete("/cloud/delete-file", {
+        params: {
+          filename: filename
+        },
+        headers: {
+          "Authorization": `Bearer ${token}`
+        },
+      })
+
+      toast.success("File successfully deleted!")
+    } catch(err) {
+      toast.error("Failed to delete the file!")
+    }
   }
  
   return(
