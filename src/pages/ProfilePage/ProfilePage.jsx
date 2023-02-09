@@ -39,8 +39,6 @@ export function ProfilePage() {
       password: data.password
     }
 
-    console.log(updatedParams)
-
     await api.put("/users", updatedParams, {
       headers: {
         "Authorization": `Bearer ${token}`
