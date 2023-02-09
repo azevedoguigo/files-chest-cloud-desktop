@@ -1,0 +1,50 @@
+.profile-page {
+  display: flex;
+  flex-direction: row;
+}
+
+.profile-page .profile-manager {
+  width: 100%;
+}
+
+.profile-page .profile-manager h2 {
+  margin-top: 2vh;
+  margin-left: 10vh;
+}
+
+.profile-page .profile-manager form {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin-top: 4vh;
+  margin-left: 10vh;
+}
+
+.profile-page .profile-manager form h3 {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+
+.profile-page .profile-manager form h4 {
+  margin-bottom: 1vh;
+}
+
+.profile-page .profile-manager form input {
+  font-size: 16px;
+  margin-bottom: 1vh;
+  padding: 1vh;
+}
+.profile-page .profile-manager form .confirm-password {
+  margin-top: 6vh;
+} 
+
+.profile-page .profile-manager button {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  padding: 1vh;
+  margin-top: 2vh;
+}
