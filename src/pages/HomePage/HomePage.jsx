@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react"
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 import { DeleteFileIcon } from "../../components/icons/DeleteFileIcon"
 import { DownloadIcon } from "../../components/icons/DownloadIcon"
@@ -38,17 +40,25 @@ export function HomePage() {
   async function uploadFile(event) {
     event.preventDefault()
 
+    if(!file)
+      toast.error("No files selected for upload!")
+
     const data = new FormData()
 
     data.append("upload", file[0])
-    console.log(file[0])
 
-    await api.post("/cloud/upload", data, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-        "Authorization": `Bearer ${token}`
-      }
-    })
+    try {
+      await api.post("/cloud/upload", data, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          "Authorization": `Bearer ${token}`
+        }
+      })
+
+      toast.success("Success uploading the file!")
+    } catch(err) {
+      toast.error("Failed to upload the file!")
+    }
   }
 
   function reloadPage() {
@@ -150,6 +160,7 @@ export function HomePage() {
           }) : <div className="no-files-message"><h2>No files found</h2></div>}
         </ul>
       </div>
+      <ToastContainer />
     </div>
   )
 }
