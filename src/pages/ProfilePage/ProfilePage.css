@@ -59,3 +59,8 @@
   padding: 1vh;
   margin-top: 2vh;
 }
+
+.profile-page .profile-manager button:hover{
+  background-color: #3b993e;
+  transition: 0.5s;
+}
