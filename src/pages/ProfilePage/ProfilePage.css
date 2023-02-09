@@ -38,6 +38,16 @@
   margin-top: 6vh;
 } 
 
+.profile-page .profile-manager p {
+  color: rgb(197, 37, 37);
+  margin-bottom: 1vh;
+}
+
+.profile-page .profile-manager p::before {
+  display: inline;
+  content: "⚠ ";
+}
+
 .profile-page .profile-manager button {
   background-color: #4CAF50;
   color: white;
