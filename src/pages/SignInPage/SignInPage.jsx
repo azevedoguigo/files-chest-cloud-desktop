@@ -1,4 +1,8 @@
 import { Link } from "react-router-dom"
+
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+
 import { useForm } from "react-hook-form"
 import { api } from "../../services/api"
 
@@ -12,17 +16,23 @@ export function SignInPage() {
   } = useForm()
 
   async function onSubmit(data) {
-    const response = await api.post('/users/signin', {
-      email: data.email,
-      password: data.password
-    })
+    try {
+      const response = await api.post('/users/signin', {
+        email: data.email,
+        password: data.password
+      })
+  
+      if(response.status == 200) {
+        localStorage.setItem("token", response.data)
+        window.location.href = "/"
+      }
+    } catch(err) {
+      if(err.response.status == 401)
+        toast.warning(err.response.data.message)
 
-    if(response.status == 200) {
-      localStorage.setItem("token", response.data)
-      window.location.href = "/"
+      if(err.response.status == 400 || err.response.status == 500)
+        toast.error("SignIn fail! Wait a few moments and try again.")
     }
-
-    console.log(response.status, response.statusText)
   }
 
   return(
@@ -52,6 +62,8 @@ export function SignInPage() {
           <button type="submit">Let's Go!</button>
         </form>
       </div>
+
+      <ToastContainer />
     </div>
   )
 }
