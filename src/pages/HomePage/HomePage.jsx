@@ -25,13 +25,17 @@ export function HomePage() {
     if(token === null) window.location.href = "/sign-in"
 
     async function loadFilesList() {
-      const response = await api.get("/cloud/list-files", {
-        headers: {
-          "Authorization": `Bearer ${token}`
-        }
-      })
-
-      setFilesList(response.data)
+      try {
+        const response = await api.get("/cloud/list-files", {
+          headers: {
+            "Authorization": `Bearer ${token}`
+          }
+        })
+  
+        setFilesList(response.data)
+      } catch(err) {
+        toast.error("Failed to load file list!")
+      }
     }
 
     loadFilesList()
