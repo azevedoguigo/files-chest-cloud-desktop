@@ -2,6 +2,9 @@ import { useForm } from "react-hook-form"
 import { Link } from "react-router-dom"
 import { api } from "../../services/api"
 
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+
 import "./SignUpPage.css"
 
 export function SignUpPage() {
@@ -12,14 +15,30 @@ export function SignUpPage() {
   } = useForm()
 
   async function onSubmit(data) {
+    try {
+      const response = await api.post('/users', {
+        name: data.name,
+        email: data.email,
+        password: data.password
+      })
+  
+      if(response.status == 201) window.location.href = "/sign-in"
+    } catch(err) {
+      if(err.response.status == 400){ 
+        let requestErrors = err.response.data.error
+        
+        if(requestErrors.name)
+          toast.warning(`Invalid name: ${requestErrors.name[0]}`)
 
-    const response = await api.post('/users', {
-      name: data.name,
-      email: data.email,
-      password: data.password
-    })
+        if(requestErrors.email)
+          toast.warning(`Invalid email: ${requestErrors.email[0]}`)
 
-    if(response.status == 201) window.location.href = "/sign-in"
+        if(requestErrors.password)
+          toast.warning(`Invalid password: ${requestErrors.password[0]}`)
+        
+      } else
+        toast.error("Sign Up fail! Wait a few moments and try again.")
+    }
   }
 
   return(
@@ -56,6 +75,8 @@ export function SignUpPage() {
           <button type="submit">Create Account</button>
         </form>
       </div>
+
+      <ToastContainer />
     </div>
   )
 }
