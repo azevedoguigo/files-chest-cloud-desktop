@@ -5,8 +5,14 @@ import { SettingsIcon } from "../icons/SettingsIcon"
 
 import "./Sidebar.css"
 import { CloudIcon } from "../icons/CloudIcon"
+import { PowerIcon } from "../icons/PoweIcon"
 
 export function Sidebar() {
+
+  function logout() {
+    localStorage.removeItem("token")
+  }
+
   return (
     <aside className="sidebar">
       <div className="logo">
@@ -29,6 +35,9 @@ export function Sidebar() {
           </Link>
         </li>
       </ul>
+      <Link to={"/sign-in"} className="logout-button" onClick={logout}>
+        <PowerIcon />
+      </Link>
     </aside>
   )
 }

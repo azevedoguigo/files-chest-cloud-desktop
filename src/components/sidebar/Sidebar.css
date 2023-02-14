@@ -21,3 +21,10 @@
 .sidebar ul li {
   margin-top: 3vh;
 }
+
+.sidebar .logout-button {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  margin-top: 65vh;
+}
