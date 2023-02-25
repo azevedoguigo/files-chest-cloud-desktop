@@ -52,6 +52,8 @@ export function HomePage() {
     data.append("upload", file[0])
 
     try {
+      toast.info("Uploading the file...")
+
       await api.post("/cloud/upload", data, {
         headers: {
           'Content-Type': 'multipart/form-data',
