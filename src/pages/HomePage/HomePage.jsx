@@ -65,8 +65,18 @@ export function HomePage() {
     }
   }
 
-  function reloadPage() {
-    window.location.href = "/"
+  async function reloadPage() {
+    try {
+      const response = await api.get("/cloud/list-files", {
+        headers: {
+          "Authorization": `Bearer ${token}`
+        }
+      })
+
+      setFilesList(response.data)
+    } catch(err) {
+      toast.error("Failed to reload file list!")
+    }
   }
 
   
