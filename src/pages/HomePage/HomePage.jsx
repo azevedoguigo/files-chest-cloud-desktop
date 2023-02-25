@@ -41,6 +41,20 @@ export function HomePage() {
     loadFilesList()
   }, [])
 
+  async function reloadPage() {
+    try {
+      const response = await api.get("/cloud/list-files", {
+        headers: {
+          "Authorization": `Bearer ${token}`
+        }
+      })
+
+      setFilesList(response.data)
+    } catch(err) {
+      toast.error("Failed to reload file list!")
+    }
+  }
+
   async function uploadFile(event) {
     event.preventDefault()
 
@@ -62,25 +76,12 @@ export function HomePage() {
       })
 
       toast.success("Success uploading the file!")
+
+      await reloadPage()
     } catch(err) {
       toast.error("Failed to upload the file!")
     }
   }
-
-  async function reloadPage() {
-    try {
-      const response = await api.get("/cloud/list-files", {
-        headers: {
-          "Authorization": `Bearer ${token}`
-        }
-      })
-
-      setFilesList(response.data)
-    } catch(err) {
-      toast.error("Failed to reload file list!")
-    }
-  }
-
   
   async function downloadFile(filename) {
     
@@ -125,6 +126,7 @@ export function HomePage() {
       })
 
       toast.success("File successfully deleted!")
+      await reloadPage()
     } catch(err) {
       toast.error("Failed to delete the file!")
     }
