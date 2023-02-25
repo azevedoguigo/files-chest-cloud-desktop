@@ -84,8 +84,7 @@ export function HomePage() {
   }
   
   async function downloadFile(filename) {
-    
-    try {
+    try {      
       const response = await api.get("/cloud/download", {
         params: {
           filename: filename
@@ -101,6 +100,8 @@ export function HomePage() {
         const downloadPath = await save({
           defaultPath: `/home/${filename}`
         })
+
+        toast.info("Downloading the file...")
   
         invoke("download_file", {
           url: downloadUrl,
