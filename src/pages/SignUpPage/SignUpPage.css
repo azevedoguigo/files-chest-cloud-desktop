@@ -29,7 +29,8 @@
 .sign-up-form input {
   color: #3a3a3a;
   width: 70vh;
-  padding: 10px;
+  font-size: 18px;
+  padding: 6px;
   margin-bottom: 20px;
   border: 1px solid #afafaf;
   border-radius: 4px;
