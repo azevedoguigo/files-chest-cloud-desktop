@@ -34,6 +34,7 @@ export function ProfilePage() {
 
   async function onSubmit(data) {
     let updatedParams = {
+      id: userData.id,
       name: data.name,
       email: data.email,
       password: data.password
