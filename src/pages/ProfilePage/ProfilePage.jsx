@@ -14,7 +14,7 @@ export function ProfilePage() {
     if(token === null) window.location.href = "/sign-in"
     
     async function loadUserData() {
-      const response = await api.get("/users", {
+      const response = await api.get("/users/current", {
         headers: {
           "Authorization": `Bearer ${token}`
         }
