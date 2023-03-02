@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+
 import { Sidebar } from "../../components/sidebar/Sidebar";
 import { api } from "../../services/api";
 
@@ -14,13 +17,17 @@ export function ProfilePage() {
     if(token === null) window.location.href = "/sign-in"
     
     async function loadUserData() {
-      const response = await api.get("/users/current", {
-        headers: {
-          "Authorization": `Bearer ${token}`
-        }
-      })
+      try {
+        const response = await api.get("/users/current", {
+          headers: {
+            "Authorization": `Bearer ${token}`
+          }
+        })
 
-      setUserData(response.data.user)
+        setUserData(response.data.user)
+      } catch(err) {
+        toast.error("Failed to load your account data!")
+      }
     }
 
     loadUserData()
@@ -33,18 +40,24 @@ export function ProfilePage() {
   } = useForm()
 
   async function onSubmit(data) {
-    let updatedParams = {
-      id: userData.id,
-      name: data.name,
-      email: data.email,
-      password: data.password
-    }
-
-    await api.put("/users", updatedParams, {
-      headers: {
-        "Authorization": `Bearer ${token}`
+    try {
+      let updatedParams = {
+        id: userData.id,
+        name: data.name,
+        email: data.email,
+        password: data.password
       }
-    })
+  
+      await api.put("/users", updatedParams, {
+        headers: {
+          "Authorization": `Bearer ${token}`
+        }
+      })
+
+      toast.success("Profile updated!")
+    } catch(err) {
+      toast.error("Failed to update profile!")
+    }
   }
 
   return (
@@ -91,6 +104,7 @@ export function ProfilePage() {
           <button type="submit">Save profile changes</button>
         </form>
       </div>
+      <ToastContainer />
     </div>
   )
 }
