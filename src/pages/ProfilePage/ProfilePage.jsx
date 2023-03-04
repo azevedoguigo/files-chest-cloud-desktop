@@ -65,7 +65,20 @@ export function ProfilePage() {
 
       toast.success("Profile updated!")
     } catch(err) {
-      toast.error("Failed to update profile!")
+      if(err.response.status == 400){ 
+        let requestErrors = err.response.data.error
+        
+        if(requestErrors.name)
+          toast.warning(`Invalid name: ${requestErrors.name[0]}`)
+
+        if(requestErrors.email)
+          toast.warning(`Invalid email: ${requestErrors.email[0]}`)
+
+        if(requestErrors.password)
+          toast.warning(`Invalid password: ${requestErrors.password[0]}`)
+        
+      } else
+        toast.error("Fail to update the profile!")
     }
   }
 
