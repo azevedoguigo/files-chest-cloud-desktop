@@ -47,6 +47,15 @@ export function ProfilePage() {
         email: data.email,
         password: data.password
       }
+
+      if(!data.name)
+        updatedParams.name = userData.name
+      
+      if(!data.email)
+        updatedParams.email = userData.email
+
+      if(!data.password)
+        updatedParams.password = userData.password
   
       await api.put("/users", updatedParams, {
         headers: {
