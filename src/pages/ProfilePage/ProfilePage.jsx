@@ -45,7 +45,8 @@ export function ProfilePage() {
         id: userData.id,
         name: data.name,
         email: data.email,
-        password: data.password
+        password: data.password,
+        currentPassword: data.confirmPassword
       }
 
       if(!data.name)
@@ -67,6 +68,9 @@ export function ProfilePage() {
     } catch(err) {
       if(err.response.status == 400){ 
         let requestErrors = err.response.data.error
+
+        if(err.response.data.message)
+          toast.warning(err.response.data.message)
         
         if(requestErrors.name)
           toast.warning(`Invalid name: ${requestErrors.name[0]}`)
@@ -112,16 +116,18 @@ export function ProfilePage() {
             type="password"
             name="password"
             placeholder="Change password?" 
+            {...register("password", { required: true })}
           />
+          {errors.password && <p>Password is required!</p>}
 
           <h4 className="confirm-password">Enter your password to be able to make changes</h4>
           <input 
             type="password"
             name="confirm-password"
             placeholder="Password"
-            {...register("password", { required: true })}
+            {...register("confirmPassword", { required: true })}
           />
-          {errors.password && <p>Password is required!</p>}
+          {errors.confirmPassword && <p>Password is required!</p>}
 
           <button type="submit">Save profile changes</button>
         </form>
