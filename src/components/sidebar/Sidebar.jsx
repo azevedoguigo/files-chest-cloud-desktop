@@ -18,6 +18,7 @@ export function Sidebar() {
       <div className="logo">
         <CloudIcon />
       </div>
+      <div id="divisor"></div>
       <ul>
         <li>
           <Link to={"/"}>
