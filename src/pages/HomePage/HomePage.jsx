@@ -159,10 +159,6 @@ export function HomePage() {
             <span className="filesize">File Size</span>
 
             <span className="filename">Last Modified</span>
-
-            <button className="reload-button" onClick={reloadPage}>
-              <ReloadIcon/>
-            </button>
           </li>
           {filesList.length ? filesList.map(file => {
             return <li key={file.key} className="file-info">

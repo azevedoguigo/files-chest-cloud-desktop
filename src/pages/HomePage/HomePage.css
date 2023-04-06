@@ -52,14 +52,6 @@
   margin-left: 1vh;
 }
 
-.files-manager .upload-form .reload-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 75vh;
-  padding: 4px;
-}
-
 .files-manager  ul {
   background-color: rgb(245, 245, 245);
   border: 1px solid rgb(216, 216, 216);
@@ -70,18 +62,12 @@
 }
 
 .files-manager .list-description {
+  display: flex;
+  justify-content: space-around;
   border-bottom: 1px solid rgb(216, 216, 216);
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
   padding: 1vh;
-}
-
-.files-manager .list-description .filename {
-  padding: 1vh 22vh 1vh;
-}
-
-.files-manager .list-description .filesize {
-  padding: 1vh 10vh 1vh;
 }
 
 h4 {
