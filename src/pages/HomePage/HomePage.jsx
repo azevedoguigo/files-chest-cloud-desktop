@@ -4,7 +4,6 @@ import "react-toastify/dist/ReactToastify.css"
 
 import { DeleteFileIcon } from "../../components/icons/DeleteFileIcon"
 import { DownloadIcon } from "../../components/icons/DownloadIcon"
-import { ReloadIcon } from "../../components/icons/ReloadIcon"
 import { UploadIcon } from "../../components/icons/UploadIcon"
 
 import { invoke } from '@tauri-apps/api/tauri'
@@ -154,11 +153,9 @@ export function HomePage() {
         <h4>All Files</h4>
         <ul> 
           <li className="list-description">
-            <span className="filename">File Name</span>
+            <span className="filename-d">File Name</span>
 
             <span className="filesize">File Size</span>
-
-            <span className="filename">Last Modified</span>
           </li>
           {filesList.length ? filesList.map(file => {
             return <li key={file.key} className="file-info">
@@ -170,17 +167,19 @@ export function HomePage() {
                 <span>{(file.size / (1024 * 1024)).toFixed(2)} MB</span>
               </div>
 
-              <div className="last-modified">
-                <span>{file.last_modified}</span>
-              </div>
-
               <div className="action-icons">
                 <button onClick={() => downloadFile(file.key)}>
-                  <i><DownloadIcon /></i>
+                  <i>
+                    <DownloadIcon />
+                    <span>Download</span>
+                  </i>
                 </button>
 
                 <button onClick={() => deleteFile(file.key)}>
-                  <i><DeleteFileIcon /></i>
+                  <i>
+                    <DeleteFileIcon />
+                    <span>Delete</span>
+                  </i>
                 </button>
               </div>
             </li>
