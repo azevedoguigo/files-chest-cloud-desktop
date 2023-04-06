@@ -74,17 +74,6 @@ h4 {
   margin-top: 2vh;
 }
 
-.files-manager .list-description .reload-button {
-  border: none;
-  background-color: rgb(245, 245, 245);
-  margin-left: 11.5vh;
-  padding: 4px;
-}
-
-.files-manager .list-description .reload-button:hover {
-  cursor: pointer;
-}
-
 .files-manager .file-info {
   display: flex;
   flex-direction: row;
