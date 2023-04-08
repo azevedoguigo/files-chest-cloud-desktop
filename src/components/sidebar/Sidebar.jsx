@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { HomeIcon } from "../icons/HomeIcon"
+import { FileIcon } from "../icons/FileIcon"
 import { UserIcon } from "../icons/UserIcon"
 
 import "./Sidebar.css"
@@ -21,7 +21,7 @@ export function Sidebar() {
       <ul>
         <li>
           <Link to={"/"}>
-            <HomeIcon />
+            <FileIcon />
           </Link>
         </li>
         <li>
