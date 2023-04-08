@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom"
 import { HomeIcon } from "../icons/HomeIcon"
 import { UserIcon } from "../icons/UserIcon"
-import { SettingsIcon } from "../icons/SettingsIcon"
 
 import "./Sidebar.css"
 import { CloudIcon } from "../icons/CloudIcon"
