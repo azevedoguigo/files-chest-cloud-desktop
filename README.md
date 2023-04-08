@@ -1,7 +1,15 @@
-# Tauri + React
+# Files Chest Cloud
 
-This template should help get you started developing with Tauri and React in Vite.
+### This is a simple desktop app for managing files in the cloud.
 
-## Recommended IDE Setup
+### Technologies used:
+- [Tauri](https://tauri.app/)
+- [React](https://react.dev/)
+- [Backend (Web Api)](https://github.com/azevedoguigo/files_chest_cloud_api)
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+
+#### Home page
+![Home page](https://user-images.githubusercontent.com/121823516/230740229-3c5f72f1-eb3d-4e29-b37c-591c035174c4.png)
+
+#### Profile page
+![Captura de tela de 2023-04-08 17-00-40](https://user-images.githubusercontent.com/121823516/230740411-44155438-e794-4bb9-a709-358f05302246.png)
