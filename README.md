@@ -13,3 +13,10 @@
 
 #### Profile page
 ![Captura de tela de 2023-04-08 17-00-40](https://user-images.githubusercontent.com/121823516/230740411-44155438-e794-4bb9-a709-358f05302246.png)
+
+## How to use? 
+
+- [Follow the instructions to run the api.](https://github.com/azevedoguigo/files_chest_cloud_api)
+- Clone the repository to a location of your choice.
+- Run the npm install command in your terminal inside the app directory to download the dependencies.
+- Run npm run tauri dev to run the app in development mode.
