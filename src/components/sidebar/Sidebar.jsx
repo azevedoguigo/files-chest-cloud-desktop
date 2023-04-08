@@ -30,11 +30,6 @@ export function Sidebar() {
             <UserIcon />
           </Link>
         </li>
-        <li>
-          <Link to={"/settings"}>
-            <SettingsIcon />
-          </Link>
-        </li>
       </ul>
       <Link to={"/sign-in"} className="logout-button" onClick={logout}>
         <PowerIcon />
