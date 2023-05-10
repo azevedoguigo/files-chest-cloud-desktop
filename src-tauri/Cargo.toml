@@ -1,7 +1,7 @@
 [package]
 name = "files-chest-cloud-desktop"
 version = "1.0.0"
-description = "A Tauri App"
+description = "This is a simple desktop app for managing files in the cloud."
 authors = ["you"]
 license = ""
 repository = ""
