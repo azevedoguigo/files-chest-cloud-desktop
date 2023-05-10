@@ -2,9 +2,9 @@
 name = "files-chest-cloud-desktop"
 version = "1.0.0"
 description = "This is a simple desktop app for managing files in the cloud."
-authors = ["you"]
+authors = ["Guilherme Azevedo (azevedoguigo)"]
 license = ""
-repository = ""
+repository = "https://github.com/azevedoguigo/files-chest-cloud-desktop.git"
 edition = "2021"
 rust-version = "1.57"
 
