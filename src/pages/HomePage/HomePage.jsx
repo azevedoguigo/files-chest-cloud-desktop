@@ -13,15 +13,18 @@ import { api } from "../../services/api"
 
 import "./HomePage.css"
 import { Sidebar } from "../../components/sidebar/Sidebar"
+import jwtDecode from "jwt-decode"
 
 export function HomePage() {
   const [filesList, setFilesList] = useState([])
   const [file, setFile] = useState(null)
 
-  const token = localStorage.getItem("token") 
+  const token = localStorage.getItem("token")
+  const decodedToken = jwtDecode(token)
 
   useEffect(() => {
-    if(token === null) window.location.href = "/sign-in"
+    if(token === null || Date.now() >= decodedToken.exp * 1000) 
+      window.location.href = "/sign-in"
 
     async function loadFilesList() {
       try {
