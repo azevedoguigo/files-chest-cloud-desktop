@@ -62,14 +62,18 @@ h4 {
   border-radius: 4px;
   list-style: none;
   width: 152vh;
+  height: 78vh;
   margin-top: 1vh;
+  overflow: auto;
 }
 
 .files-manager .list-description {
-  border-bottom: 1px solid rgb(216, 216, 216);
+  border: 1px solid rgb(216, 216, 216);
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
   padding: 1vh;
+  margin-top: 1vh;
+  list-style: none;
 }
 
 .files-manager .list-description .filesize {

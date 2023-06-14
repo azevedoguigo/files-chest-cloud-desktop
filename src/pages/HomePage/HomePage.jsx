@@ -153,13 +153,15 @@ export function HomePage() {
             <span>Upload</span>
           </button>
         </form>
-        <h4>All Files</h4>
-        <ul> 
-          <li className="list-description">
-            <span className="filename-d">File Name</span>
 
-            <span className="filesize">File Size</span>
-          </li>
+        <h4>All Files</h4>
+        <li className="list-description">
+          <span className="filename">File Name</span>
+
+          <span className="filesize">File Size</span>
+        </li>
+        
+        <ul> 
           {filesList.length ? filesList.map(file => {
             return <li key={file.key} className="file-info">
               <div className="filename">
