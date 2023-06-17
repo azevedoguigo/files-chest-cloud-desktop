@@ -20,10 +20,14 @@ export function HomePage() {
   const [file, setFile] = useState(null)
 
   const token = localStorage.getItem("token")
-  const decodedToken = jwtDecode(token)
 
   useEffect(() => {
-    if(token === null || Date.now() >= decodedToken.exp * 1000) 
+    if(!token)
+      window.location.href = "/sign-in"
+
+    const Decodedtoken = jwtDecode(token)
+
+    if(Date.now() >= token.exp * 1000) 
       window.location.href = "/sign-in"
 
     async function loadFilesList() {
