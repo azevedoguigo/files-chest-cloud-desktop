@@ -19,9 +19,9 @@ export function HomePage() {
   const [filesList, setFilesList] = useState([])
   const [file, setFile] = useState(null)
 
-  useEffect(() => {
-    const token = localStorage.getItem("token")
+  const token = localStorage.getItem("token")
 
+  useEffect(() => {
     if(!token)
       window.location.href = "/sign-in"
 
