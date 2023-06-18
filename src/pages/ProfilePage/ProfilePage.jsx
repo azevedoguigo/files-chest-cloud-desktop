@@ -116,9 +116,8 @@ export function ProfilePage() {
             type="password"
             name="password"
             placeholder="Change password?" 
-            {...register("password", { required: true })}
+            {...register("password")}
           />
-          {errors.password && <p>Password is required!</p>}
 
           <h4 className="confirm-password">Enter your password to be able to make changes</h4>
           <input 
