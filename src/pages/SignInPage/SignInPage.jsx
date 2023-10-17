@@ -36,15 +36,19 @@ export function SignInPage() {
   }
 
   return(
-    <div className="sign-in-container">
-      <div className="sigin-page">
-        <form onSubmit={ handleSubmit(onSubmit) }>
-          <h3>SignIn</h3>
+    <div className="sigin-page flex items-center justify-center bg-zinc-950 h-screen">
+      <div className="flex flex-col items-center justify-center border border-zinc-800 rounded-md p-4 text-zinc-300 w-5/12">
+        <h3 className="font-bold text-xl pb-8">SignIn</h3>
 
+        <form 
+          onSubmit={ handleSubmit(onSubmit) }
+          className="flex flex-col w-full"
+        >
           <input 
             type="email" 
             name="email" 
-            placeholder="Your Email" 
+            placeholder="Your Email"
+            className="bg-zinc-800 p-3 border-none rounded-md mb-3" 
             {...register("email", { required: true })}
           />
           {errors.email && <p>Email is required!</p>}
@@ -52,14 +56,22 @@ export function SignInPage() {
           <input 
             type="password" 
             name="password" 
-            placeholder="Your Password" 
+            placeholder="Your Password"
+            className="bg-zinc-800 p-3 border-none rounded-md"
             {...register("password", { required: true })}
           />
           {errors.password && <p>Password is required!</p>}
 
-          <span>Don't have an account yet? <Link to={"/sign-up"}>SignUp</Link></span>
+          <span className="mt-3 mb-6">Don't have an account yet?  
+            <Link className="text-blue-500                                                                                                                                                         ml-1" to={"/sign-up"}>SignUp</Link>
+          </span>
 
-          <button type="submit">Let's Go!</button>
+          <button 
+            type="submit"
+            className="bg-green-500 font-bold mb-2 py-3 px-4 rounded-md hover:bg-green-600"
+          >
+            Let's Go!
+          </button>
         </form>
       </div>
 
