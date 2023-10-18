@@ -4,7 +4,6 @@ import "react-toastify/dist/ReactToastify.css"
 
 import { DeleteFileIcon } from "../../components/icons/DeleteFileIcon"
 import { DownloadIcon } from "../../components/icons/DownloadIcon"
-import { UploadIcon } from "../../components/icons/UploadIcon"
 
 import { invoke } from '@tauri-apps/api/tauri'
 import { save } from "@tauri-apps/api/dialog"
@@ -14,10 +13,10 @@ import { api } from "../../services/api"
 import "./HomePage.css"
 import { Sidebar } from "../../components/sidebar/Sidebar"
 import jwtDecode from "jwt-decode"
+import { UploadInput } from "../../components/uploadInput/UploadInput"
 
 export function HomePage() {
   const [filesList, setFilesList] = useState([])
-  const [file, setFile] = useState(null)
 
   const token = localStorage.getItem("token")
 
@@ -58,34 +57,6 @@ export function HomePage() {
       setFilesList(response.data)
     } catch(err) {
       toast.error("Failed to reload file list!")
-    }
-  }
-
-  async function uploadFile(event) {
-    event.preventDefault()
-
-    if(!file)
-      toast.error("No files selected for upload!")
-
-    const data = new FormData()
-
-    data.append("upload", file[0])
-
-    try {
-      toast.info("Uploading the file...")
-
-      await api.post("/cloud/upload", data, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          "Authorization": `Bearer ${token}`
-        }
-      })
-
-      toast.success("Success uploading the file!")
-
-      await reloadPage()
-    } catch(err) {
-      toast.error("Failed to upload the file!")
     }
   }
   
@@ -144,19 +115,7 @@ export function HomePage() {
       <Sidebar/>
       <div className="files-manager">
         <h4>Upload</h4>
-
-        <form className="upload-form" onSubmit={uploadFile}>
-          <span>Choose a file to upload:</span>
-          <input 
-            type="file" 
-            name="file"
-            onChange={event => {setFile(event.target.files)}}
-          />
-          <button type="submit" className="upload-button">
-            <UploadIcon/>
-            <span>Upload</span>
-          </button>
-        </form>
+        <UploadInput />
 
         <h4>All Files</h4>
         <li className="list-description">
