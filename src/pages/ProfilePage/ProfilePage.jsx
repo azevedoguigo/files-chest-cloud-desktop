@@ -6,8 +6,6 @@ import "react-toastify/dist/ReactToastify.css"
 import { Sidebar } from "../../components/sidebar/Sidebar";
 import { api } from "../../services/api";
 
-import "./ProfilePage.css"
-
 export function ProfilePage() {
   const [userData, setUserData] = useState({})
 
@@ -87,48 +85,69 @@ export function ProfilePage() {
   }
 
   return (
-    <div className="profile-page">
+    <div className="flex flex-row bg-zinc-900">
       <Sidebar />
+      <div className="w-full text-zinc-50 px-14 py-12">
+        <h2 className="text-3xl font-bold">
+          Account Details
+        </h2>
 
-      <div className="profile-manager">
-        <h2>Account Details</h2>
-
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <h3>Profile Information</h3>
-          <h4>Name</h4>
+        <form 
+          onSubmit={handleSubmit(onSubmit)}
+          className="py-6"
+        >
+          <h4 className="text-2xl font-medium mb-1">
+            Name
+          </h4>
           <input 
             type="text" 
             name="name"
-            defaultValue={userData.name}
+            placeholder={userData.name}
+            className="bg-zinc-800 w-1/3 p-2 mb-4 border-none rounded-md"
             {...register("name")}
           /> 
 
-          <h4>Email</h4>
+          <h4 className="text-2xl font-medium mb-1">
+            Email
+          </h4>
           <input 
             type="email" 
             name="email"
-            defaultValue={userData.email}
+            className="bg-zinc-800 w-1/3 p-2 mb-4 border-none rounded-md"
+            placeholder={userData.email}
             {...register("email")}
           />
 
-          <h4>Password</h4>
+          <h4 className="text-2xl font-medium mb-1">
+            Password
+          </h4>
           <input 
             type="password"
             name="password"
+            className="bg-zinc-800 w-1/3 p-2 mb-4 border-none rounded-md"
             placeholder="Change password?" 
             {...register("password")}
           />
 
-          <h4 className="confirm-password">Enter your password to be able to make changes</h4>
+          <h4 className="text-base font-medium mb-2">
+            Enter your password to be able to make changes
+          </h4>
           <input 
             type="password"
             name="confirm-password"
             placeholder="Password"
+            className="bg-zinc-800 w-1/3 p-2 mb-4 border-none rounded-md"
             {...register("confirmPassword", { required: true })}
           />
           {errors.confirmPassword && <p>Password is required!</p>}
+          <br />
 
-          <button type="submit">Save profile changes</button>
+          <button 
+            type="submit"
+            className="bg-green-500 rounded-md font-bold w-1/3 p-2 hover:bg-green-600"
+          >
+            Save profile changes
+          </button>
         </form>
       </div>
       <ToastContainer />
