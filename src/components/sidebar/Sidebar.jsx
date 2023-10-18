@@ -11,7 +11,7 @@ export function Sidebar() {
   }
 
   return (
-    <aside className="flex flex-col items-center justify-center bg-zinc-950 h-screen px-4">
+    <aside className="flex flex-col items-center justify-center bg-zinc-950 h-screen w-20 px-4">
       <div>
         <CloudIcon />
       </div>
