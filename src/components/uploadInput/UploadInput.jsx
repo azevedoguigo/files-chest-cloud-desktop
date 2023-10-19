@@ -55,7 +55,7 @@ export function UploadInput() {
         />
         <button 
           type="submit" 
-          className="flex flex-row items-center justify-center bg-green-500 rounded-md w-full"
+          className="flex flex-row items-center justify-center bg-green-500 rounded-md w-full hover:bg-green-600"
         >
           <UploadIcon/>
           <span className="ml-2 font-bold">Upload</span>
