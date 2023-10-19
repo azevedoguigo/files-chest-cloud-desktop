@@ -10,7 +10,6 @@ import { save } from "@tauri-apps/api/dialog"
 
 import { api } from "../../services/api"
 
-import "./HomePage.css"
 import { Sidebar } from "../../components/sidebar/Sidebar"
 import jwtDecode from "jwt-decode"
 import { UploadInput } from "../../components/uploadInput/UploadInput"
@@ -111,13 +110,12 @@ export function HomePage() {
   }
  
   return(
-    <div className="home-page">
+    <div className="flex flex-row bg-zinc-900">
       <Sidebar/>
-      <div className="files-manager">
-        <h4>Upload</h4>
+      <div className="px-12 py-10 w-full">
         <UploadInput />
 
-        <h4>All Files</h4>
+        <h4 className="text-3xl mt-6">All Files</h4>
         <li className="list-description">
           <span className="filename">File Name</span>
 

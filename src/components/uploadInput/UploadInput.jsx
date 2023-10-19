@@ -39,19 +39,28 @@ export function UploadInput() {
   }
 
   return (
-    <>
-      <form className="upload-form" onSubmit={uploadFile}>
-        <span>Choose a file to upload:</span>
+    <div className="text-zinc-50 border border-zinc-700 rounded-md p-2 w-2/3 max-w-2xl">
+      <form 
+        onSubmit={uploadFile}
+      >
+        <span className="font-bold">
+          Choose a file to upload:
+        </span>
         <input 
           type="file" 
           name="file"
+          class="block w-full mb-5 mt-2 text-xs text-zinc-50 rounded-md cursor-pointer bg-zinc-800" 
+          id="small_size"
           onChange={event => {setFile(event.target.files)}}
         />
-        <button type="submit" className="upload-button">
+        <button 
+          type="submit" 
+          className="flex flex-row items-center justify-center bg-green-500 rounded-md w-full"
+        >
           <UploadIcon/>
-          <span>Upload</span>
+          <span className="ml-2 font-bold">Upload</span>
         </button>
       </form>
-    </>
+    </div>
   )
 }
