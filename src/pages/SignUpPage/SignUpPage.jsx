@@ -42,14 +42,19 @@ export function SignUpPage() {
   }
 
   return(
-    <div className="sign-up-container">
-      <div className="sign-up-page">
-        <form onSubmit={handleSubmit(onSubmit)} className="sign-up-form">
-          <h3>SignUp</h3>
+    <div className="sigin-page flex items-center justify-center bg-zinc-950 h-screen">
+      <div className="flex flex-col items-center justify-center border border-zinc-800 rounded-md p-4 text-zinc-300 w-5/12">
+        <h3 className="font-bold text-xl pb-8">SignUp</h3>
+
+        <form 
+          onSubmit={handleSubmit(onSubmit)} 
+          className="flex flex-col w-full"
+        >
           <input 
             type="text" 
             name="name" 
             placeholder="Your Name" 
+            className="bg-zinc-800 p-3 border-none rounded-md mb-3"
             {...register("name", {required: true})}
           />
           {errors.name && <p>Name is required!</p>}
@@ -58,6 +63,7 @@ export function SignUpPage() {
             type="text" 
             name="email" 
             placeholder="Your Email Address" 
+            className="bg-zinc-800 p-3 border-none rounded-md mb-3"
             {...register("email", { required: true })}
           />
           {errors.email && <p>Email is required!</p>}
@@ -66,13 +72,27 @@ export function SignUpPage() {
             type="password" 
             name="password" 
             placeholder="Your Password" 
+            className="bg-zinc-800 p-3 border-none rounded-md"
             {...register("password", { required: true })}
           />
           {errors.password && <p>Password is required!</p>}
 
-          <span>Already have an account? <Link to={"/sign-in"}>SignIn</Link></span>
+          <span className="mt-3 mb-6">
+            Already have an account? 
+            <Link 
+              to={"/sign-in"}
+              className="text-blue-500 ml-1"
+            >
+              SignIn
+            </Link>
+          </span>
 
-          <button type="submit">Create Account</button>
+          <button 
+            type="submit"
+            className="bg-green-500 font-bold mb-2 py-3 px-4 rounded-md hover:bg-green-600"
+          >
+            Create Account
+          </button>
         </form>
       </div>
 
