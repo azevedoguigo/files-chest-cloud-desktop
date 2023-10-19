@@ -112,20 +112,20 @@ export function HomePage() {
   return(
     <div className="flex flex-row bg-zinc-900">
       <Sidebar/>
-      <div className="px-12 py-10 w-full">
+      <div className="px-12 py-10 w-full text-zinc-50">
         <UploadInput />
 
-        <h4 className="text-3xl mt-6">All Files</h4>
-        <li className="list-description">
-          <span className="filename">File Name</span>
-
-          <span className="filesize">File Size</span>
-        </li>
+        <h4 className="text-3xl mt-6 mb-2 font-bold">
+          All Files
+        </h4>
         
-        <ul> 
+        <ul className="border border-zinc-700 rounded-md"> 
           {filesList.length ? filesList.map(file => {
-            return <li key={file.key} className="file-info">
-              <div className="filename">
+            return <li 
+              key={file.key} 
+              className="flex flex-row items-center border-b border-b-zinc-700 py-2 px-4 justify-between"
+            >
+              <div className="w-1/3">
                 <span>{file.key}</span>
               </div>
               
@@ -133,18 +133,18 @@ export function HomePage() {
                 <span>{(file.size / (1024 * 1024)).toFixed(2)} MB</span>
               </div>
 
-              <div className="action-icons">
+              <div>
                 <button onClick={() => downloadFile(file.key)}>
-                  <i>
+                  <i className="flex flex-row">
                     <DownloadIcon />
-                    <span>Download</span>
+                    <span className="ml-2">Download</span>
                   </i>
                 </button>
 
                 <button onClick={() => deleteFile(file.key)}>
-                  <i>
+                  <i className="flex flex-row ml-2">
                     <DeleteFileIcon />
-                    <span>Delete</span>
+                    <span className="ml-2">Delete</span>
                   </i>
                 </button>
               </div>
