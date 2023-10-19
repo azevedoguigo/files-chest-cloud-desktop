@@ -4,20 +4,18 @@ import "react-toastify/dist/ReactToastify.css"
 
 import { DeleteFileIcon } from "../../components/icons/DeleteFileIcon"
 import { DownloadIcon } from "../../components/icons/DownloadIcon"
-import { UploadIcon } from "../../components/icons/UploadIcon"
 
 import { invoke } from '@tauri-apps/api/tauri'
 import { save } from "@tauri-apps/api/dialog"
 
 import { api } from "../../services/api"
 
-import "./HomePage.css"
 import { Sidebar } from "../../components/sidebar/Sidebar"
 import jwtDecode from "jwt-decode"
+import { UploadInput } from "../../components/uploadInput/UploadInput"
 
 export function HomePage() {
   const [filesList, setFilesList] = useState([])
-  const [file, setFile] = useState(null)
 
   const token = localStorage.getItem("token")
 
@@ -58,34 +56,6 @@ export function HomePage() {
       setFilesList(response.data)
     } catch(err) {
       toast.error("Failed to reload file list!")
-    }
-  }
-
-  async function uploadFile(event) {
-    event.preventDefault()
-
-    if(!file)
-      toast.error("No files selected for upload!")
-
-    const data = new FormData()
-
-    data.append("upload", file[0])
-
-    try {
-      toast.info("Uploading the file...")
-
-      await api.post("/cloud/upload", data, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          "Authorization": `Bearer ${token}`
-        }
-      })
-
-      toast.success("Success uploading the file!")
-
-      await reloadPage()
-    } catch(err) {
-      toast.error("Failed to upload the file!")
     }
   }
   
@@ -140,35 +110,22 @@ export function HomePage() {
   }
  
   return(
-    <div className="home-page">
+    <div className="flex flex-row bg-zinc-900">
       <Sidebar/>
-      <div className="files-manager">
-        <h4>Upload</h4>
+      <div className="px-12 py-10 w-full text-zinc-50">
+        <UploadInput />
 
-        <form className="upload-form" onSubmit={uploadFile}>
-          <span>Choose a file to upload:</span>
-          <input 
-            type="file" 
-            name="file"
-            onChange={event => {setFile(event.target.files)}}
-          />
-          <button type="submit" className="upload-button">
-            <UploadIcon/>
-            <span>Upload</span>
-          </button>
-        </form>
-
-        <h4>All Files</h4>
-        <li className="list-description">
-          <span className="filename">File Name</span>
-
-          <span className="filesize">File Size</span>
-        </li>
+        <h4 className="text-3xl mt-6 mb-2 font-bold">
+          All Files
+        </h4>
         
-        <ul> 
+        <ul className="border border-zinc-700 rounded-md"> 
           {filesList.length ? filesList.map(file => {
-            return <li key={file.key} className="file-info">
-              <div className="filename">
+            return <li 
+              key={file.key} 
+              className="flex flex-row items-center border-b border-b-zinc-700 py-2 px-4 justify-between"
+            >
+              <div className="w-1/3">
                 <span>{file.key}</span>
               </div>
               
@@ -176,18 +133,18 @@ export function HomePage() {
                 <span>{(file.size / (1024 * 1024)).toFixed(2)} MB</span>
               </div>
 
-              <div className="action-icons">
+              <div>
                 <button onClick={() => downloadFile(file.key)}>
-                  <i>
+                  <i className="flex flex-row">
                     <DownloadIcon />
-                    <span>Download</span>
+                    <span className="ml-2">Download</span>
                   </i>
                 </button>
 
                 <button onClick={() => deleteFile(file.key)}>
-                  <i>
+                  <i className="flex flex-row ml-2">
                     <DeleteFileIcon />
-                    <span>Delete</span>
+                    <span className="ml-2">Delete</span>
                   </i>
                 </button>
               </div>

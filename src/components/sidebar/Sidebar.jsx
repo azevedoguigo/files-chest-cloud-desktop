@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom"
 import { FileIcon } from "../icons/FileIcon"
 import { UserIcon } from "../icons/UserIcon"
-
-import "./Sidebar.css"
 import { CloudIcon } from "../icons/CloudIcon"
 import { PowerIcon } from "../icons/PoweIcon"
 
@@ -13,13 +11,13 @@ export function Sidebar() {
   }
 
   return (
-    <aside className="sidebar">
-      <div className="logo">
+    <aside className="flex flex-col items-center justify-center bg-zinc-950 h-screen w-20 px-4">
+      <div>
         <CloudIcon />
       </div>
-      <div id="divisor"></div>
-      <ul>
-        <li>
+      <div className="bg-zinc-500 h-0.5 w-full"></div>
+      <ul className="flex flex-col justify-center h-5/6">
+        <li className="pb-5">
           <Link to={"/"}>
             <FileIcon />
           </Link>
