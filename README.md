@@ -8,11 +8,21 @@
 - [Backend (Web Api)](https://github.com/azevedoguigo/files_chest_cloud_api)
 
 
+### SignUp page
+![Captura de tela de 2023-10-19 10-48-46](https://github.com/azevedoguigo/files-chest-cloud-desktop/assets/121823516/895e7132-c04b-433b-80ab-edf8f2b917ab)
+
+
+### SignIn page
+![Captura de tela de 2023-10-19 10-47-30](https://github.com/azevedoguigo/files-chest-cloud-desktop/assets/121823516/1378c4d3-87ef-4a74-91dd-fda1a8e141cf)
+
+
+
 #### Home page
-![Home page](https://user-images.githubusercontent.com/121823516/230740229-3c5f72f1-eb3d-4e29-b37c-591c035174c4.png)
+![Captura de tela de 2023-10-19 10-37-45](https://github.com/azevedoguigo/files-chest-cloud-desktop/assets/121823516/4e79f3a0-5a23-4887-b2da-95a532578c62)
+
 
 #### Profile page
-![Captura de tela de 2023-04-08 17-00-40](https://user-images.githubusercontent.com/121823516/230740411-44155438-e794-4bb9-a709-358f05302246.png)
+![Captura de tela de 2023-10-19 10-38-00](https://github.com/azevedoguigo/files-chest-cloud-desktop/assets/121823516/bf276007-b348-4ab0-9132-c20b7790da19)
 
 ## How to use? 
 
