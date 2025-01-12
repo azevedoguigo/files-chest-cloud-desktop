@@ -38,7 +38,7 @@ export function HomePage() {
   
         setFilesList(response.data)
       } catch(err) {
-        toast.error("Failed to load file list!")
+        toast.error("Failed to load file list!", {theme: "dark"})
       }
     }
 
@@ -55,7 +55,7 @@ export function HomePage() {
 
       setFilesList(response.data)
     } catch(err) {
-      toast.error("Failed to reload file list!")
+      toast.error("Failed to reload file list!", {theme: "dark"})
     }
   }
   
@@ -77,7 +77,7 @@ export function HomePage() {
           defaultPath: `/home/${filename}`
         })
 
-        toast.info("Downloading the file...")
+        toast.info("Downloading the file...", {theme: "dark"})
   
         invoke("download_file", {
           url: downloadUrl,
@@ -85,9 +85,9 @@ export function HomePage() {
         })
       }
 
-      toast.success("Success downloading the file!")
+      toast.success("Success downloading the file!", {theme: "dark"})
     } catch(err) {
-      toast.error("Failed to download file!")
+      toast.error("Failed to download file!", {theme: "dark"})
     }
   }
 
@@ -102,10 +102,10 @@ export function HomePage() {
         },
       })
 
-      toast.success("File successfully deleted!")
+      toast.success("File successfully deleted!", {theme: "dark"})
       await reloadPage()
     } catch(err) {
-      toast.error("Failed to delete the file!")
+      toast.error("Failed to delete the file!", {theme: "dark"})
     }
   }
  
