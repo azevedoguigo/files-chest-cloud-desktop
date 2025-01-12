@@ -36,39 +36,49 @@ export function SignInPage() {
   }
 
   return(
-    <div className="sigin-page flex items-center justify-center bg-zinc-950 h-screen">
-      <div className="flex flex-col items-center justify-center border border-zinc-800 rounded-md p-4 text-zinc-300 w-5/12">
+    <div 
+      className="sigin-page flex items-center justify-center bg-zinc-950 h-screen"
+    >
+      <div 
+        className="flex flex-col items-center justify-center border border-zinc-800 rounded-md p-4 text-zinc-300 w-5/12"
+      >
         <h3 className="font-bold text-xl pb-8">SignIn</h3>
 
         <form 
           onSubmit={ handleSubmit(onSubmit) }
-          className="flex flex-col w-full"
+          className="flex flex-col w-full gap-2"
         >
-          <input 
-            type="email" 
-            name="email" 
-            placeholder="Your Email"
-            className="bg-zinc-800 p-3 border-none rounded-md mb-3" 
-            {...register("email", { required: true })}
-          />
+          <label className="input input-bordered flex items-center gap-2">
+            Email
+            <input 
+              type="email" 
+              name="email" 
+              placeholder="email@example.com"
+              className="grow"
+              {...register("email", { required: true })}
+            />
+          </label>
           {errors.email && <p>Email is required!</p>}
 
-          <input 
-            type="password" 
-            name="password" 
-            placeholder="Your Password"
-            className="bg-zinc-800 p-3 border-none rounded-md"
-            {...register("password", { required: true })}
-          />
+          <label className="input input-bordered flex items-center gap-2">
+            Password
+            <input 
+              type="password" 
+              name="password" 
+              placeholder="********"
+              className="grow"
+              {...register("password", { required: true })}
+            />
+          </label>
           {errors.password && <p>Password is required!</p>}
 
-          <span className="mt-3 mb-6">Don't have an account yet?  
+          <span className="mt-3 mb-3">Don't have an account yet?  
             <Link className="text-blue-500                                                                                                                                                         ml-1" to={"/sign-up"}>SignUp</Link>
           </span>
 
           <button 
             type="submit"
-            className="bg-green-500 font-bold mb-2 py-3 px-4 rounded-md hover:bg-green-600"
+            className="btn btn-success text-lg"
           >
             Let's Go!
           </button>

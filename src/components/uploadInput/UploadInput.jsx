@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css"
 
 import { api } from "../../services/api"
 
-export function UploadInput() {
+export function UploadInput({reloadPage}) {
   const [file, setFile] = useState(null)
 
   const token = localStorage.getItem("token")
@@ -21,7 +21,7 @@ export function UploadInput() {
     data.append("upload", file[0])
 
     try {
-      toast.info("Uploading the file...")
+      toast.info("Uploading the file...", {theme: "dark"})
 
       await api.post("/cloud/upload", data, {
         headers: {
@@ -30,37 +30,41 @@ export function UploadInput() {
         }
       })
 
-      toast.success("Success uploading the file!")
-
+      reloadPage()
+      toast.success("Success uploading the file!", {theme: "dark"})
     } catch(err) {
       console.log(err)
-      toast.error("Failed to upload the file!")
+      toast.error("Failed to upload the file!", {theme: "dark"})
     }
   }
 
   return (
-    <div className="text-zinc-50 border border-zinc-700 rounded-md p-2 w-2/3 max-w-2xl">
-      <form 
-        onSubmit={uploadFile}
-      >
-        <span className="font-bold">
-          Choose a file to upload:
-        </span>
-        <input 
-          type="file" 
-          name="file"
-          class="block w-full mb-5 mt-2 text-xs text-zinc-50 rounded-md cursor-pointer bg-zinc-800" 
-          id="small_size"
-          onChange={event => {setFile(event.target.files)}}
-        />
-        <button 
-          type="submit" 
-          className="flex flex-row items-center justify-center bg-green-500 rounded-md w-full hover:bg-green-600"
+    <div className="text-zinc-50 rounded-md">
+      <h4 className="text-3xl mb-2 font-bold">
+        Upload Files
+      </h4>
+      
+      <div className="px-4">
+        <form 
+          onSubmit={uploadFile}
+          className="flex items-center justify-around bg-base-200 rounded-2xl p-4"
         >
-          <UploadIcon/>
-          <span className="ml-2 font-bold">Upload</span>
-        </button>
-      </form>
+          <input
+            type="file"
+            className="file-input file-input-bordered file-input-success w-[50vw]" 
+            onChange={event => {setFile(event.target.files)}}
+          />
+          <button 
+            type="submit" 
+            className="btn btn-success w-52"
+          >
+            <UploadIcon/>
+            <span className="ml-1 text-lg">
+              Upload
+            </span>
+          </button>
+        </form>
+      </div>
     </div>
   )
 }

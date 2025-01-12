@@ -9,22 +9,23 @@
 
 
 ### SignUp page
-![Captura de tela de 2023-10-19 10-48-46](https://github.com/azevedoguigo/files-chest-cloud-desktop/assets/121823516/895e7132-c04b-433b-80ab-edf8f2b917ab)
+![Captura de tela de 2025-01-12 02-33-02](https://github.com/user-attachments/assets/1daf1426-b046-49ae-813e-9be7a8fabc0e)
 
 
 ### SignIn page
-![Captura de tela de 2023-10-19 10-47-30](https://github.com/azevedoguigo/files-chest-cloud-desktop/assets/121823516/1378c4d3-87ef-4a74-91dd-fda1a8e141cf)
+![Captura de tela de 2025-01-12 02-22-14](https://github.com/user-attachments/assets/c5a473b9-4fa3-4c48-914f-2e4091031d9e)
 
 
 
 #### Home page
-![Captura de tela de 2023-10-19 10-37-45](https://github.com/azevedoguigo/files-chest-cloud-desktop/assets/121823516/4e79f3a0-5a23-4887-b2da-95a532578c62)
+![Captura de tela de 2025-01-12 02-04-47](https://github.com/user-attachments/assets/41c7a57f-43a7-4d1e-bc82-348b2b4e6369)
 
 
 #### Profile page
-![Captura de tela de 2023-10-19 10-38-00](https://github.com/azevedoguigo/files-chest-cloud-desktop/assets/121823516/bf276007-b348-4ab0-9132-c20b7790da19)
+![Captura de tela de 2025-01-12 02-09-02](https://github.com/user-attachments/assets/35c8dda9-b979-4d92-9f81-fd1c5e57d518)
 
 ## How to use? 
+
 
 - [Follow the instructions to run the api.](https://github.com/azevedoguigo/files_chest_cloud_api)
 - Clone the repository to a location of your choice.
