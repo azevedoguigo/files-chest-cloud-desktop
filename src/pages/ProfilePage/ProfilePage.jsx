@@ -24,7 +24,10 @@ export function ProfilePage() {
 
         setUserData(response.data.user)
       } catch(err) {
-        toast.error("Failed to load your account data!")
+        toast.error(
+          "Failed to load your account data!", 
+          {theme: "dark"}
+        )
       }
     }
 
@@ -62,25 +65,37 @@ export function ProfilePage() {
         }
       })
 
-      toast.success("Profile updated!")
+      toast.success("Profile updated!", {theme: "dark"})
     } catch(err) {
       if(err.response.status == 400){ 
         let requestErrors = err.response.data.error
 
         if(err.response.data.message)
-          toast.warning(err.response.data.message)
+          toast.warning(err.response.data.message, {theme: "dark"})
         
         if(requestErrors.name)
-          toast.warning(`Invalid name: ${requestErrors.name[0]}`)
+          toast.warning(
+            `Invalid name: ${requestErrors.name[0]}`, 
+            {theme: "dark"}
+          )
 
         if(requestErrors.email)
-          toast.warning(`Invalid email: ${requestErrors.email[0]}`)
+          toast.warning(
+            `Invalid email: ${requestErrors.email[0]}`, 
+            {theme: "dark"}
+          )
 
         if(requestErrors.password)
-          toast.warning(`Invalid password: ${requestErrors.password[0]}`)
+          toast.warning(
+            `Invalid password: ${requestErrors.password[0]}`,
+            {theme: "dark"}
+          )
         
       } else
-        toast.error("Fail to update the profile!")
+        toast.error(
+          "Fail to update the profile!",
+          {theme: "dark"}
+        )
     }
   }
 
@@ -94,57 +109,61 @@ export function ProfilePage() {
 
         <form 
           onSubmit={handleSubmit(onSubmit)}
-          className="py-6"
+          className="flex flex-col gap-3 py-6 w-3/6"
         >
-          <h4 className="text-2xl font-medium mb-1">
+          <label className="input input-bordered flex items-center gap-2">
             Name
-          </h4>
-          <input 
-            type="text" 
-            name="name"
-            placeholder={userData.name}
-            className="bg-zinc-800 w-1/3 p-2 mb-4 border-none rounded-md"
-            {...register("name")}
-          /> 
+            <input 
+              type="text" 
+              name="name"
+              placeholder={userData.name}
+              className="grow"
+              {...register("name")}
+            /> 
+          </label>
 
-          <h4 className="text-2xl font-medium mb-1">
+          <label className="input input-bordered flex items-center gap-2">
             Email
-          </h4>
-          <input 
-            type="email" 
-            name="email"
-            className="bg-zinc-800 w-1/3 p-2 mb-4 border-none rounded-md"
-            placeholder={userData.email}
-            {...register("email")}
-          />
+            <input 
+              type="email" 
+              name="email"
+              className="grow"
+              placeholder={userData.email}
+              {...register("email")}
+            />
+          </label>
 
-          <h4 className="text-2xl font-medium mb-1">
+          <label className="input input-bordered flex items-center gap-2">
             Password
-          </h4>
-          <input 
-            type="password"
-            name="password"
-            className="bg-zinc-800 w-1/3 p-2 mb-4 border-none rounded-md"
-            placeholder="Change password?" 
-            {...register("password")}
-          />
+            <input 
+              type="password"
+              name="password"
+              className="grow"
+              placeholder="Change password?" 
+              {...register("password")}
+            />
+          </label>
 
-          <h4 className="text-base font-medium mb-2">
+          <h4 className="mt-2">
             Enter your password to be able to make changes
           </h4>
-          <input 
-            type="password"
-            name="confirm-password"
-            placeholder="Password"
-            className="bg-zinc-800 w-1/3 p-2 mb-4 border-none rounded-md"
-            {...register("confirmPassword", { required: true })}
-          />
-          {errors.confirmPassword && <p>Password is required!</p>}
-          <br />
+
+          <label className="input input-bordered flex items-center gap-2">
+            Password
+            <input 
+              type="password"
+              name="confirm-password"
+              placeholder="Password"
+              className="grow"
+              {...register("confirmPassword", { required: true })}
+            />
+            
+          </label>
+          {errors.confirmPassword && <p className="text-red-500">Password is required!</p>}
 
           <button 
             type="submit"
-            className="bg-green-500 rounded-md font-bold w-1/3 p-2 hover:bg-green-600"
+            className="btn btn-success text-xl mt-2"
           >
             Save profile changes
           </button>
