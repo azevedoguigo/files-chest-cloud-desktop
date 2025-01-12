@@ -21,7 +21,7 @@ export function UploadInput({reloadPage}) {
     data.append("upload", file[0])
 
     try {
-      toast.info("Uploading the file...")
+      toast.info("Uploading the file...", {theme: "dark"})
 
       await api.post("/cloud/upload", data, {
         headers: {
@@ -31,10 +31,10 @@ export function UploadInput({reloadPage}) {
       })
 
       reloadPage()
-      toast.success("Success uploading the file!")
+      toast.success("Success uploading the file!", {theme: "dark"})
     } catch(err) {
       console.log(err)
-      toast.error("Failed to upload the file!")
+      toast.error("Failed to upload the file!", {theme: "dark"})
     }
   }
 
