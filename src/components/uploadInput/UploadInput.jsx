@@ -44,25 +44,27 @@ export function UploadInput({reloadPage}) {
         Upload Files
       </h4>
       
-      <form 
-        onSubmit={uploadFile}
-        className="flex items-center"
-      >
-        <input
-          type="file"
-          className="file-input file-input-bordered file-input-success w-2/4" 
-          onChange={event => {setFile(event.target.files)}}
-        />
-        <button 
-          type="submit" 
-          className="btn btn-success ml-2 w-40"
+      <div className="px-4">
+        <form 
+          onSubmit={uploadFile}
+          className="flex items-center justify-around bg-base-200 rounded-2xl p-4"
         >
-          <UploadIcon/>
-          <span className="ml-1 text-lg">
-            Upload
-          </span>
-        </button>
-      </form>
+          <input
+            type="file"
+            className="file-input file-input-bordered file-input-success w-[50vw]" 
+            onChange={event => {setFile(event.target.files)}}
+          />
+          <button 
+            type="submit" 
+            className="btn btn-success w-52"
+          >
+            <UploadIcon/>
+            <span className="ml-1 text-lg">
+              Upload
+            </span>
+          </button>
+        </form>
+      </div>
     </div>
   )
 }

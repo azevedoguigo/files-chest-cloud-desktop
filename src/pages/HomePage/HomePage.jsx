@@ -38,7 +38,7 @@ export function HomePage() {
   
         setFilesList(response.data)
       } catch(err) {
-        toast.error("Failed to load file list!")
+        toast.error("Failed to load file list!", {theme: "dark"})
       }
     }
 
@@ -55,7 +55,7 @@ export function HomePage() {
 
       setFilesList(response.data)
     } catch(err) {
-      toast.error("Failed to reload file list!")
+      toast.error("Failed to reload file list!", {theme: "dark"})
     }
   }
   
@@ -77,7 +77,7 @@ export function HomePage() {
           defaultPath: `/home/${filename}`
         })
 
-        toast.info("Downloading the file...")
+        toast.info("Downloading the file...", {theme: "dark"})
   
         invoke("download_file", {
           url: downloadUrl,
@@ -85,9 +85,9 @@ export function HomePage() {
         })
       }
 
-      toast.success("Success downloading the file!")
+      toast.success("Success downloading the file!", {theme: "dark"})
     } catch(err) {
-      toast.error("Failed to download file!")
+      toast.error("Failed to download file!", {theme: "dark"})
     }
   }
 
@@ -102,10 +102,10 @@ export function HomePage() {
         },
       })
 
-      toast.success("File successfully deleted!")
+      toast.success("File successfully deleted!", {theme: "dark"})
       await reloadPage()
     } catch(err) {
-      toast.error("Failed to delete the file!")
+      toast.error("Failed to delete the file!", {theme: "dark"})
     }
   }
  
@@ -119,34 +119,48 @@ export function HomePage() {
           All Files
         </h4>
         
-        <ul className="border border-zinc-700 rounded-md"> 
+        <ul className="rounded-md"> 
           {filesList.length ? filesList.map(file => {
             return <li 
               key={file.key} 
-              className="flex flex-row items-center border-b border-b-zinc-700 py-2 px-4 justify-between"
+              className="flex flex-row items-center py-2 px-4 justify-between"
             >
-              <div className="w-1/3">
-                <span>{file.key}</span>
-              </div>
-              
-              <div className="filesize">  
-                <span>{(file.size / (1024 * 1024)).toFixed(2)} MB</span>
-              </div>
+              <div className="collapse collapse-arrow bg-base-200">
+                <input type="radio" name="my-accordion-2" />
+                <div className="collapse-title text-xl font-medium">
+                  <div className="flex items-center justify-around">
+                    <div className="flex flex-col gap-2">
+                      <span className="font-bold">Name:</span>
+                      <span>{file.key}</span>
+                    </div>
+                    
+                    <div className="flex flex-col gap-2">
+                      <span className="font-bold">Size:</span>
+                      <span>{(file.size / (1024 * 1024)).toFixed(2)} MB</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex justify-between collapse-content py-4 px-14">
+                  <button 
+                    onClick={() => downloadFile(file.key)}
+                    className="btn btn-outline btn-success w-52"
+                  >
+                    <i className="flex flex-row justify-center items-center">
+                      <DownloadIcon />
+                      <span className="ml-2">Download</span>
+                    </i>
+                  </button>
 
-              <div>
-                <button onClick={() => downloadFile(file.key)}>
-                  <i className="flex flex-row">
-                    <DownloadIcon />
-                    <span className="ml-2">Download</span>
-                  </i>
-                </button>
-
-                <button onClick={() => deleteFile(file.key)}>
-                  <i className="flex flex-row ml-2">
-                    <DeleteFileIcon />
-                    <span className="ml-2">Delete</span>
-                  </i>
-                </button>
+                  <button 
+                    onClick={() => deleteFile(file.key)}
+                    className="btn btn-outline btn-error w-52"
+                  >
+                    <i className="flex flex-row justify-center items-center">
+                      <DeleteFileIcon />
+                      <span className="ml-2">Delete</span>
+                    </i>
+                  </button>
+                </div>
               </div>
             </li>
           }) : <div className="no-files-message"><h2>No files found</h2></div>}
