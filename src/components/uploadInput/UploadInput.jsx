@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css"
 
 import { api } from "../../services/api"
 
-export function UploadInput() {
+export function UploadInput({reloadPage}) {
   const [file, setFile] = useState(null)
 
   const token = localStorage.getItem("token")
@@ -30,8 +30,8 @@ export function UploadInput() {
         }
       })
 
+      reloadPage()
       toast.success("Success uploading the file!")
-
     } catch(err) {
       console.log(err)
       toast.error("Failed to upload the file!")
