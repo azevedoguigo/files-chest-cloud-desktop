@@ -28,16 +28,28 @@ export function SignUpPage() {
         let requestErrors = err.response.data.error
         
         if(requestErrors.name)
-          toast.warning(`Invalid name: ${requestErrors.name[0]}`)
+          toast.warning(
+            `Invalid name: ${requestErrors.name[0]}`,
+            {theme: "dark"}
+          )
 
         if(requestErrors.email)
-          toast.warning(`Invalid email: ${requestErrors.email[0]}`)
+          toast.warning(
+            `Invalid email: ${requestErrors.email[0]}`,
+            {theme: "dark"}
+          )
 
         if(requestErrors.password)
-          toast.warning(`Invalid password: ${requestErrors.password[0]}`)
+          toast.warning(
+            `Invalid password: ${requestErrors.password[0]}`,
+            {theme: "dark"}
+          )
         
       } else
-        toast.error("Sign Up fail! Wait a few moments and try again.")
+        toast.error(
+          "Sign Up fail! Wait a few moments and try again.",
+          {theme: "dark"}
+        )
     }
   }
 
@@ -48,36 +60,45 @@ export function SignUpPage() {
 
         <form 
           onSubmit={handleSubmit(onSubmit)} 
-          className="flex flex-col w-full"
+          className="flex flex-col w-full gap-2"
         >
-          <input 
-            type="text" 
-            name="name" 
-            placeholder="Your Name" 
-            className="bg-zinc-800 p-3 border-none rounded-md mb-3"
-            {...register("name", {required: true})}
-          />
+          <label className="input input-bordered flex items-center gap-2">
+            Name
+            <input 
+              type="text" 
+              name="name" 
+              placeholder="John Doe" 
+              className="grow"
+              {...register("name", {required: true})}
+            />
+          </label>
           {errors.name && <p>Name is required!</p>}
 
-          <input 
-            type="text" 
-            name="email" 
-            placeholder="Your Email Address" 
-            className="bg-zinc-800 p-3 border-none rounded-md mb-3"
-            {...register("email", { required: true })}
-          />
+          <label className="input input-bordered flex items-center gap-2">
+            Email
+            <input 
+              type="email" 
+              name="email" 
+              placeholder="email@example.com"
+              className="grow"
+              {...register("email", { required: true })}
+            />
+          </label>
           {errors.email && <p>Email is required!</p>}
 
-          <input 
-            type="password" 
-            name="password" 
-            placeholder="Your Password" 
-            className="bg-zinc-800 p-3 border-none rounded-md"
-            {...register("password", { required: true })}
-          />
+          <label className="input input-bordered flex items-center gap-2">
+            Password
+            <input 
+              type="password" 
+              name="password" 
+              placeholder="********"
+              className="grow"
+              {...register("password", { required: true })}
+            />
+          </label>
           {errors.password && <p>Password is required!</p>}
 
-          <span className="mt-3 mb-6">
+          <span className="mt-3 mb-3">
             Already have an account? 
             <Link 
               to={"/sign-in"}
@@ -89,7 +110,7 @@ export function SignUpPage() {
 
           <button 
             type="submit"
-            className="bg-green-500 font-bold mb-2 py-3 px-4 rounded-md hover:bg-green-600"
+            className="btn btn-success text-lg"
           >
             Create Account
           </button>
