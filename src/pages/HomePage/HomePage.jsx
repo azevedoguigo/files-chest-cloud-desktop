@@ -113,7 +113,7 @@ export function HomePage() {
     <div className="flex flex-row bg-zinc-900">
       <Sidebar/>
       <div className="px-12 py-10 w-full text-zinc-50">
-        <UploadInput />
+        <UploadInput reloadPage={reloadPage} />
 
         <h4 className="text-3xl mt-6 mb-2 font-bold">
           All Files
